@@ -1,6 +1,16 @@
 //
 // Routes
-//
+
+
+var mongoose = require("mongoose");
+
+
+
+module.exports = function(app){
+
+
+
+
 // Route for getting all Portfolio items from the db
 app.get("/portfolio", function(req, res) {
 
@@ -31,11 +41,11 @@ app.get("/portfolio/:id", function(req, res) {
     });
 });
 
-// Route for getting Home page info
+//Route for getting Home page info
 app.get("/", function(req, res) {
 
   db.Home.find({})
-    .then(function(dbHome
+    .then(function(dbHome){
 
       res.json(dbHome);
 
@@ -50,7 +60,7 @@ app.get("/", function(req, res) {
 app.get("/home", function(req, res) {
 
   db.Home.find({})
-    .then(function(dbHome
+    .then(function(dbHome){
 
       res.json(dbHome);
 
@@ -199,3 +209,14 @@ app.post("/about/:ID", function(req, res) {
       res.json(err);
     });
 });
+
+
+
+
+
+
+
+
+
+
+}

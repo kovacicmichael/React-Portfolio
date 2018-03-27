@@ -28,7 +28,7 @@ var PortfolioSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Portfolio = mongoose.model("Article", PortfolioSchema);
+var Portfolio = mongoose.model("Portfolio", PortfolioSchema);
 
 // Export the Article model
 module.exports = Portfolio;

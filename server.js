@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-require ("./components/apiRoutes")
+require ("./controllers/apiRoutes")
 
 // Require all models
 var db = require("./models");
@@ -20,6 +20,14 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
+
+
+
+require("./controllers/apiRoutes.js")(app);
+require("./controllers/htmlRoutes.js")(app);
+
+
+
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/portfolioDB";

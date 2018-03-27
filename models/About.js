@@ -23,7 +23,7 @@ var AboutSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var About = mongoose.model("Article", AboutSchema);
+var About = mongoose.model("About", AboutSchema);
 
 // Export the Article model
 module.exports = About;

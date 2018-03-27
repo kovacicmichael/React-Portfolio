@@ -17,7 +17,7 @@ var PageStatsSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var PageStats = mongoose.model("ArticleStats", PageStatsSchema);
+var PageStats = mongoose.model("PageStats", PageStatsSchema);
 
 // Export the Note model
 module.exports = PageStats;
