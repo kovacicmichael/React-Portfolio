@@ -26,18 +26,19 @@ export default class Home extends Component {
   	console.log("loadpage")
     API.getAll()
       .then(res =>{
-      	console.log(res)
-      //   this.setState({ 
-      //   	aboutbioImgae:about.bioImg,
-		   	// aboutName: about.name,
-		    // aboutBio: about.bio,
-		    // homeBackImg: homepage.backImg,
-		    // homeMessage: homepage.message,
-		    // homeTitle: homepage.title,
-		    // portImage: portfolio.portImg,
-		    // portName: portfolio.name,
-		    // portDes: portfolio.projectDes,
-      //   })
+      	console.log(res.data)
+      	const data = res.data
+        this.setState({ 
+        	aboutbioImgae:data.about[0].bioImg,
+		   	aboutName: data.about[0].name,
+		    aboutBio: data.about[0].bio,
+		    homeBackImg: data.homepage[0].backImg,
+		    homeMessage: data.homepage[0].message,
+		    homeTitle: data.homepage[0].title,
+		    portImage: data.portfolio[0].portImg,
+		    portName: data.portfolio[0].name,
+		    portDes: data.portfolio[0].projectDes,
+        })
     })
       .catch(err => console.log(err));
   };
@@ -50,7 +51,7 @@ export default class Home extends Component {
 			<Grid>
 				<Jumbotron>
 					<h2>{this.state.homeMessage}</h2>
-					<p>This is the personal portfolio of Robert Gerboth</p>
+					<p>{this.state.homeTitle}</p>
 					<p>Built with react, react-router and react-bootstrap</p>
 					<Link to='/about'>
 						<Button bsStyle="primary">About</Button>
