@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 // This is similar to a Sequelize model
 var PortfolioSchema = new Schema({
   // `title` is required and of type String
-  bioImg: {
+  portImg: {
     type: String,
     required: true
   },
@@ -16,7 +16,7 @@ var PortfolioSchema = new Schema({
     type: String,
     required: true
   },
-  bio: {
+  projectDes: {
     type: String,
     required: true
   },
