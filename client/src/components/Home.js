@@ -2,13 +2,54 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap'
 import './Home.css'
+import API from "../utils/API";
 
 export default class Home extends Component {
+  state = {
+    aboutbioImgae:"",
+   	aboutName: "",
+    aboutBio: "",
+    homeBackImg: "",
+    homeMessage: "",
+    homeTitle: "",
+    portImage: "",
+    portName: "",
+    portDes: "",
+    portClicks: 0,
+  };
+
+  componentDidMount() {
+    this.loadPage();
+  }
+
+  loadPage = () => {
+  	console.log("loadpage")
+    API.getAll()
+      .then(res =>{
+      	console.log(res)
+      //   this.setState({ 
+      //   	aboutbioImgae:about.bioImg,
+		   	// aboutName: about.name,
+		    // aboutBio: about.bio,
+		    // homeBackImg: homepage.backImg,
+		    // homeMessage: homepage.message,
+		    // homeTitle: homepage.title,
+		    // portImage: portfolio.portImg,
+		    // portName: portfolio.name,
+		    // portDes: portfolio.projectDes,
+      //   })
+    })
+      .catch(err => console.log(err));
+  };
+
+
+
+
 	render() {
 		return (
 			<Grid>
 				<Jumbotron>
-					<h2>Welcome to the portfolio</h2>
+					<h2>{this.state.homeMessage}</h2>
 					<p>This is the personal portfolio of Robert Gerboth</p>
 					<p>Built with react, react-router and react-bootstrap</p>
 					<Link to='/about'>
