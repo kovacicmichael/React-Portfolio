@@ -1,16 +1,42 @@
 import React, { Component } from 'react'
 import {Grid, Col, Image } from 'react-bootstrap'
 import './About.css'
+import API from "../utils/API";
 
 export default class About extends Component {
+	state = {
+    aboutbioImage:"",
+   	aboutName: "",
+    aboutBio: "",
+  	};
+
+  componentDidMount() {
+    this.loadPage();
+  }
+
+  loadPage = () => {
+  	console.log("loadpage")
+    API.getAll()
+      .then(res =>{
+      	console.log(res.data)
+      	const data = res.data
+        this.setState({ 
+        	aboutbioImgae:data.about[0].bioImg,
+		   	aboutName: data.about[0].name,
+		    aboutBio: data.about[0].bio,
+        })
+    })
+      .catch(err => console.log(err));
+  };
 	render() {
 		return (
 			<div>
-				<Image src = 'http://via.placeholder.com/500x100' className = 'header-image'/>
+				<Image src = {this.state.aboutbioImage} className = 'header-image'/>
 				<Grid>
 					<Col xs={12} sm={8} smOffset={2}>
 						<Image src = 'http://via.placeholder.com/300x300' className = 'about-profile-pic' rounded/>
-						<h3>Robert</h3>
+						<h3>{this.state.aboutName}</h3>
+						<p>{this.state.aboutBio}</p>
 						<p>						
 							Suas omnium eu mel. Veri libris vix in, his indoctum definitiones ex, ubique corpora duo ex. Cum error lobortis at, nemore laboramus mei id. Putant inimicus id sit. Habeo mandamus reprimique sed ei, consul volumus corrumpit cum in.
 
