@@ -4,7 +4,7 @@
 
 var mongoose = require("mongoose");
 
-
+var db = require("./../models");
 
 module.exports = function(app){
 
@@ -42,9 +42,9 @@ app.get("/portfolio/:id", function(req, res) {
 });
 
 //Route for getting Home page info
-app.get("/", function(req, res) {
+app.get("/home", function(req, res) {
 
-  db.Home.find({})
+  db.HomePage.find({})
     .then(function(dbHome){
 
       res.json(dbHome);
@@ -59,7 +59,7 @@ app.get("/", function(req, res) {
 // Route for getting Home page info
 app.get("/home", function(req, res) {
 
-  db.Home.find({})
+  db.HomePage.find({})
     .then(function(dbHome){
 
       res.json(dbHome);
@@ -140,7 +140,7 @@ app.post("/portfolio", function(req, res) {
 // Route for saving/updating an Article's associated Note
 app.post("/home", function(req, res) {
 
-  db.Home.create(req.body)
+  db.HomePage.create(req.body)
     .then(function(dbPortfolio) {
       console.log("New Portfolio ID: " + dbHome._id)
     })
@@ -160,7 +160,7 @@ app.post("/home/:ID", function(req, res) {
 
   var homeID = req.params.id
 
-  db.Home.update(req.body)
+  db.HomePage.update(req.body)
     .then(function(dbPortfolio) {
       console.log("New Portfolio ID: " + dbHome._id)
     })

@@ -21,7 +21,7 @@ npm manifest:
     "main": "server.js",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node server.js"
+      "start": "concurrently \"nodemon server.js\" \"cd client && npm run client\""
     },
     "repository": {
       "type": "git",
@@ -460,9 +460,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 1
+  Exit code: 127
   Command: sh
-  Arguments: -c node server.js
+  Arguments: -c concurrently "nodemon server.js" "cd client && npm run client"
   Directory: /Users/michaelkovacic/Desktop/Projects/Personal-Portfolio
   Output:
   
