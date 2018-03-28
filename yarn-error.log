@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn start
+  /usr/local/bin/node /usr/local/bin/yarn seed
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -20,8 +20,13 @@ npm manifest:
     "description": "",
     "main": "server.js",
     "scripts": {
+      "server": "node server.js",
+      "client": "node scripts/start-client.js",
+      "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+      "build": "node scripts/build.js",
+      "seed": "concurrently \"node scripts/seedAbout.js\" \"node scripts/seedHomePage.js\" \"node scripts/seedPortfolio.js\"",
       "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "concurrently \"nodemon server.js\" \"cd client && npm run client\""
+      "installDeps": "yarn && cd client && yarn"
     },
     "repository": {
       "type": "git",
@@ -35,9 +40,11 @@ npm manifest:
     "homepage": "https://github.com/kovacicmichael/Personal-Portfolio#readme",
     "dependencies": {
       "body-parser": "^1.18.2",
+      "concurrently": "^3.5.1",
       "express": "^4.16.3",
       "mongoose": "^5.0.12",
-      "morgan": "^1.9.0"
+      "morgan": "^1.9.0",
+      "react-router-dom": "^4.2.2"
     }
   }
 
@@ -460,9 +467,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 127
+  Exit code: 1
   Command: sh
-  Arguments: -c concurrently "nodemon server.js" "cd client && npm run client"
+  Arguments: -c concurrently "node scripts/seedAbout.js" "node scripts/seedHomePage.js" "node scripts/seedPortfolio.js"
   Directory: /Users/michaelkovacic/Desktop/Projects/Personal-Portfolio
   Output:
   

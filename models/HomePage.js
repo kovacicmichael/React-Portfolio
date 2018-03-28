@@ -12,7 +12,7 @@ var HomePageSchema = new Schema({
     required: true
   },
   // `link` is required and of type String
-  messasge: {
+  message: {
     type: String,
     required: true
   },
