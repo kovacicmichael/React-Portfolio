@@ -1,17 +1,17 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn seed
+  C:\Program Files\nodejs\node.exe C:\Users\rober\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js seed
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  C:\Users\rober\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\rober\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Common Files\Intuit\QBPOSSDKRuntime;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Program Files\MongoDB\Server\3.6\bin;C:\MAMP\bin\php\php7.0.9;C:\ProgramData\ComposerSetup\bin;C:\Users\rober\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Heroku\bin;C:\Users\rober\AppData\Roaming\npm;C:\Users\rober\AppData\Roaming\Composer\vendor\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.9.4
+  8.9.1
 
 Platform: 
-  darwin x64
+  win32 x64
 
 npm manifest: 
   {
@@ -468,14 +468,14 @@ Lockfile:
 Trace: 
   Error: Command failed.
   Exit code: 1
-  Command: sh
-  Arguments: -c concurrently "node scripts/seedAbout.js" "node scripts/seedHomePage.js" "node scripts/seedPortfolio.js"
-  Directory: /Users/michaelkovacic/Desktop/Projects/Personal-Portfolio
+  Command: C:\WINDOWS\system32\cmd.exe
+  Arguments: /d /s /c concurrently "node scripts/seedAbout.js" "node scripts/seedHomePage.js" "node scripts/seedPortfolio.js"
+  Directory: C:\Users\rober\Desktop\Projects\personal-portfolio
   Output:
   
-      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
+      at ProcessTermError.MessageError (C:\Users\rober\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at new ProcessTermError (C:\Users\rober\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
+      at ChildProcess.<anonymous> (C:\Users\rober\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
       at emitTwo (events.js:126:13)
       at ChildProcess.emit (events.js:214:7)
       at maybeClose (internal/child_process.js:925:16)
