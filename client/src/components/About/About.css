@@ -1,3 +1,13 @@
 .about{
 	background-color:white;
 }
+
+.about-profile-pic{
+
+	float:left;
+}
+
+.bioContent{
+	float:right;
+	display: inline;
+}
