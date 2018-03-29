@@ -9,6 +9,13 @@
   font-family: helvetica neue, helvetica, arial, sans-serif;
   font-weight: 200;
 }*/
+
+
+#link{
+  color:black;
+}
+
+
 html.modal-active, body.modal-active {
   overflow: hidden;
 }
@@ -38,6 +45,28 @@ html.modal-active, body.modal-active {
 #modal-container.one.out .modal-background .modal {
   animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
+
+
+
+
+#modal-container.two {
+  transform: scaleY(0.01) scaleX(0);
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.two .modal-background .modal {
+  transform: scale(0);
+  animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.two.out {
+  transform: scale(1);
+  animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.two.out .modal-background .modal {
+  animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+
+
 
 #modal-container .modal-background {
   display: table-cell;
