@@ -1,6 +1,20 @@
 .about{
 	background-color:white;
+	margin-top:;
 }
+
+.containerAbout{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.aboutTitle{
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
 
 .about-profile-pic{
 
@@ -8,6 +22,6 @@
 }
 
 .bioContent{
-	float:right;
-	display: inline;
+	float:left;
+	margin:10px;
 }

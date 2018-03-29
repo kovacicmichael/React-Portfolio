@@ -10,11 +10,11 @@ app.get("/", function(req, res){
 	res.sendFile(path.join(__dirname, '../client/public/index.html'));
 })
 
-app.get("/admin", function(req, res){
-	console.log("html rendering")
+// app.get("/admin", function(req, res){
+// 	console.log("html rendering")
 
-	res.sendFile('admin.html', { root: path.join(__dirname, '../public') });
-})
+// 	res.sendFile(path.join(__dirname, '../client/public/admin.html'));
+// })
 
 
 
