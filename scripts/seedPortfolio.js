@@ -12,8 +12,24 @@ mongoose.connect(
 const portfolio = [
   {
     portImg: "http://via.placeholder.com/250x250",
-    name: "Project Name",
+    name: "Project One Name",
     projectDes: "A cool project",
+    githubURL: "https://github.com",
+    liveLink: "https://github.com",
+    portfolioClicks: 0
+  },
+  {
+    portImg: "http://via.placeholder.com/250x250",
+    name: "Project Two Name",
+    projectDes: "Another cool project",
+    githubURL: "https://github.com",
+    liveLink: "https://github.com",
+    portfolioClicks: 0
+  },
+  {
+    portImg: "http://via.placeholder.com/250x250",
+    name: "Project Three Name",
+    projectDes: "A THIRD cool project",
     githubURL: "https://github.com",
     liveLink: "https://github.com",
     portfolioClicks: 0
