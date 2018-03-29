@@ -7,11 +7,11 @@ export default {
     return axios.get("/api/renderPage");
   },
   // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
+  deleteProject: function(id) {
+    return axios.delete("/api/project/" + id);
   },
   // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
+  saveProject: function(projectData) {
+    return axios.post("/api/project", projectData);
   }
 };

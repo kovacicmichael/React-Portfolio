@@ -9,23 +9,39 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 
 export default class Admin extends Component {
   state = {
-    projects: "",
-    name: "",
-    portImg: "",
-    projectDes: "",
-    githubURL: "",
-    liveLink: ""
+    aboutbioImgage: "",
+    aboutName: "",
+    aboutBio: "",
+    homeBackImg: "",
+    homeMessage: "",
+    homeTitle: "",
+    portImage: "",
+    portName: "",
+    portDes: "",
+    projects: ""
   };
 
   componentDidMount() {
-    this.loadAdmin();
+    this.loadPage();
   }
 
-  loadAdmin = () => {
+  loadPage = () => {
+    console.log("loadpage");
     API.getAll()
-      .then(res =>
-        this.setState({ project: res.data, name: "", projectDes: "", githubURL: "", liveLInk: "", portImg: ""})
-      )
+      .then(res =>{
+        console.log(res.data)
+        const data = res.data
+        this.setState({ 
+          aboutbioImgage:data.about[0].bioImg,
+          aboutName: data.about[0].name,
+          aboutBio: data.about[0].bio,
+          homeBackImg: data.homepage[0].bckImage,
+          homeMessage: data.homepage[0].message,
+          homeTitle: data.homepage[0].title,
+          projects: data.portfolio
+        })
+        console.log(data.about[0].name + " " + data.homepage[0].title + " " + data.portfolio[0].name)
+    })
       .catch(err => console.log(err));
   };
 
@@ -44,11 +60,11 @@ export default class Admin extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.name && this.state.projectDes) {
-      API.saveBook({
+    if (this.state.name && this.state.portDes) {
+      API.saveProject({
         name: this.state.name,
         portImg: this.state.portImg,
-        projectDes: this.state.projectDes,
+        portDes: this.state.portDes,
         githubURL: this.state.githubURL,
         liveLink: this.state.liveLink
       })
@@ -61,22 +77,73 @@ export default class Admin extends Component {
     return (
       <Container fluid>
         <Row>
+          <Col size = "md-12">
+            <Jumbotron>
+              <h1>Enter Home Page and Bio Information Here</h1>
+            </Jumbotron>
+            <form>
+              <Input
+                value={this.state.aboutName}
+                onChange={this.handleInputChange}
+                name="aboutName"
+                placeholder="Name (Required)"
+              />
+              <Input
+                value={this.state.homeTitle}
+                onChange={this.handleInputChange}
+                name="homeTitle"
+                placeholder="Homepage Title"
+              />
+              <Input
+                value={this.state.homeMessage}
+                onChange={this.handleInputChange}
+                name="homeMessage"
+                placeholder="Homepage Greeting Message"
+              />
+              <Input
+                value={this.state.homeBackImg}
+                onChange={this.handleInputChange}
+                name="homeBackImg"
+                placeholder="Homepage Background Image"
+              />
+              <Input
+                value={this.state.aboutbioImgage}
+                onChange={this.handleInputChange}
+                name="aboutbioImgage"
+                placeholder="Biography Image URL"
+              />
+              <TextArea
+                value={this.state.aboutBio}
+                onChange={this.handleInputChange}
+                name="aboutBio"
+                placeholder="Biography (Required)"
+              />
+              <FormBtn
+                disabled={!(this.state.aboutName && this.state.aboutBio)}
+                onClick={this.handleFormSubmit}
+              >
+                Submit Bio
+              </FormBtn>
+            </form>
+          </Col>
+        </Row>
+        <Row>
           <Col size="md-6">
             <Jumbotron>
               <h1>Enter New Portfolio Project</h1>
             </Jumbotron>
             <form>
               <Input
-                value={this.state.name}
+                value={this.state.portName}
                 onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
+                name="portName"
+                placeholder="Project Name (required)"
               />
               <Input
                 value={this.state.portImg}
                 onChange={this.handleInputChange}
                 name="portImg"
-                placeholder="portImg (required)"
+                placeholder="Project Image"
               />
               <Input
                 value={this.state.githubURL}
@@ -91,13 +158,13 @@ export default class Admin extends Component {
                 placeholder="Live Link (Optional)"
               />
               <TextArea
-                value={this.state.projectDes}
+                value={this.state.portDes}
                 onChange={this.handleInputChange}
-                name="projectDes"
-                placeholder="projectDes (Optional)"
+                name="portDes"
+                placeholder="Project Description (required)"
               />
               <FormBtn
-                disabled={!(this.state.projectDes && this.state.name)}
+                disabled={!(this.state.portDes && this.state.portName)}
                 onClick={this.handleFormSubmit}
               >
                 Submit Project
@@ -108,13 +175,13 @@ export default class Admin extends Component {
             <Jumbotron>
               <h1>Projects</h1>
             </Jumbotron>
-            {this.state.projects.length ? (
+              {this.state.projects.length ? (
               <List>
                 {this.state.projects.map(project => (
                   <ListItem key={project._id}>
                     <Link to={"/books/" + project._id}>
                       <strong>
-                        {project.title} by {project.portImg}
+                        {project.name}, {project.projectDes} Image: {project.portImg} ID: {project._id}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => this.deleteProject(project._id)} />
