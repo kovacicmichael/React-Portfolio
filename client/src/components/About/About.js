@@ -31,7 +31,7 @@ export default class About extends Component {
   };
 	render() {
 		return (
-			<div class="about">
+			<div className="about">
 				<div className="container containerAbout">
 					<Col md={12}>
 						<div class="aboutTitle">

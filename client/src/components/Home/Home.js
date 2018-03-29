@@ -63,14 +63,12 @@ export default class Home extends Component {
       .catch(err => console.log(err));
   };
 
-
-
-//style={{backgroundImage: "url(" + this.state.homeBackImg + ")"}}
 	render() {
 		
 		return (
 
 			<Router>
+
 			<wrapper>
 		        <div class= "fluid-container" >
 		          <Navbar />
@@ -90,6 +88,7 @@ export default class Home extends Component {
 
 					<About />
 					<Skills />
+					<Projects />
 					
 				</div>
 				<Footer />
