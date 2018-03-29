@@ -8,6 +8,7 @@ import Navbar from '../Navbar';
 import About from '../About';
 import Projects from '../Projects';
 import Skills from '../Skills';
+import Footer from '../Footer';
 
 
 
@@ -70,6 +71,7 @@ export default class Home extends Component {
 		return (
 
 			<Router>
+			<wrapper>
 		        <div class= "fluid-container" >
 		          <Navbar />
 		          	<div class="fluid-container">
@@ -90,6 +92,8 @@ export default class Home extends Component {
 					<Skills />
 					
 				</div>
+				<Footer />
+			</wrapper>
 			</Router>
 		)
 	}
