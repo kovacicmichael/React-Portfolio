@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import {Grid, Col, Image } from 'react-bootstrap'
-import './About.css'
-import API from "../utils/API";
+import './Skills.css'
+import API from "../../utils/API";
 
-export default class About extends Component {
+export default class Skills extends Component {
 	state = {
     aboutbioImage:"",
    	aboutName: "",
     aboutBio: "",
   	};
-
-  componentDidMount() {
+componentDidMount() {
     this.loadPage();
   }
 
@@ -30,7 +29,7 @@ export default class About extends Component {
   };
 	render() {
 		return (
-			<div>
+			<div class="skills">
 				<Image src = {this.state.aboutbioImage} className = 'header-image'/>
 				<Grid>
 					<Col xs={12} sm={8} smOffset={2}>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Projects.css'
-import API from "../utils/API";
+import API from "../../utils/API";
 
 export default class Projects extends Component {
 	state = {

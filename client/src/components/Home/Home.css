@@ -1,0 +1,27 @@
+.jumbotron{
+	height: 600px;
+	background-size: 100% 100%;
+	color: white;
+	position: relative;
+  margin:none;
+  margin-bottom: 0;
+}
+
+.text{
+	position: absolute;
+	right: 10%;
+	bottom: 20%;
+}
+
+.btn-default{
+  background-color: #1D809F;
+  border-color: #1D809F;
+  color: #fff;
+  width:250px;
+  height:60px;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active {
+  background-color: #155d74;
+  border-color: #155d74;
+}

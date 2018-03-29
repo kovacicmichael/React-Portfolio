@@ -2,25 +2,39 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap'
 import './Home.css'
-import API from "../utils/API";
+import API from "../../utils/API";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navbar from './CustomNavbar';
-import About from './About';
-import Projects from './Projects';
+import Navbar from '../Navbar';
+import About from '../About';
+import Projects from '../Projects';
+import Skills from '../Skills';
+
+
+
+
+/*
+found this function here 
+http://stackoverflow.com/a/26831113
+*/
+
+// function inViewport($el) {
+//     var H = window.document.height(),
+//         r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+//     return Math.max(0, t>0? H-t : (b<H?b:H));  
+// }
+
+// window.document.on("scroll resize", function(){
+//   var window_offset = inViewport(document.getElementsByClassName("intro")); 
+//   document.getElementsByClassName("overlay").height(window_offset);
+//   document.getElementsByClassName("caption").css("bottom", (window_offset / 4) );
+// });
 
 
 export default class Home extends Component {
   state = {
-    aboutbioImgae:"",
-   	aboutName: "",
-    aboutBio: "",
     homeBackImg: "",
     homeMessage: "",
     homeTitle: "",
-    portImage: "",
-    portName: "",
-    portDes: "",
-    portClicks: 0,
   };
 
   componentDidMount() {
@@ -28,7 +42,7 @@ export default class Home extends Component {
   }
 
   loadPage = () => {
-  	console.log("loadpage")
+  	console.log("loadpage");
     API.getAll()
       .then(res =>{
       	console.log(res.data)
@@ -52,31 +66,29 @@ export default class Home extends Component {
 
 //style={{backgroundImage: "url(" + this.state.homeBackImg + ")"}}
 	render() {
-		// const style = {
-		//   background:{
-		//     backgroundImage: "url(" + this.state.homeBackImg + ")"
-		//   }
+		
 		return (
 
 			<Router>
 		        <div class= "fluid-container" >
 		          <Navbar />
-		          	<div class="container">
+		          	<div class="fluid-container">
 						<Jumbotron style={{backgroundImage: "url(" + this.state.homeBackImg + ")"}}>
 							<div class="text">
 								<h2>{this.state.homeMessage}</h2>
 								<p>{this.state.homeTitle}</p>
 								<br />
-								<Link to='/about'>
-									<Button bsStyle="primary">About</Button>
-								</Link>
+								
+								<Button class="btnPrimary">Learn More About Me</Button>
+								
 							</div>
 						</Jumbotron>
 						
 					</div>
 
 					<About />
-					<Projects />
+					<Skills />
+					
 				</div>
 			</Router>
 		)
