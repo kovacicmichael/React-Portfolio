@@ -10,7 +10,7 @@ export default class About extends Component {
 			<footer>
 				This is the footer
 				<br />
-				<a>Admin</a>
+				<a href="/admin">Admin</a>
 			</footer>
 		)
 	}
