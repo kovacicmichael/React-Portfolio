@@ -20,6 +20,14 @@ var PortfolioSchema = new Schema({
     type: String,
     required: true
   },
+  githubURL: {
+    type: String,
+    required: true
+  },
+  liveLInk: {
+    type: String,
+    required: true
+  },
   portfolioClicks:
     {
       type: Number,
