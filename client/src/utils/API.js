@@ -18,7 +18,7 @@ export default {
     //     bio: about.aboutBio,
     //     bioImg: about.aboutbioImage
     //   }
-    // });
+  },
 
   //gets the appropriate project for the modal
   getProject: function(id){
