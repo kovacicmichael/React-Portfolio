@@ -13,8 +13,11 @@ mongoose.connect(
 
 const about = [
   {
-    bioImage: "http://via.placeholder.com/225x225",
+    bioImg: "http://via.placeholder.com/225x225",
     name: "Michael",
+    backImg: "https://",
+    message: "Hello World!",
+    title: "Full stack developer.",
     bio: "This is a little about myself",
     facebookURL: "https://facebook.com",
     githubURL: "https://github.com",

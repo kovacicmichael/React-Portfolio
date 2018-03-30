@@ -10,6 +10,7 @@ export default {
   updateAbout: function(about) {
     console.log(`Update About ID: ${about._id} ${about.name} ${about.bio} ${about.bioImg}`); //ID valid here
     return axios.post("/about/" + about._id, about)
+  },
     // return axios ({
     //   method: "post",
     //   url: "/about/" + about._id,

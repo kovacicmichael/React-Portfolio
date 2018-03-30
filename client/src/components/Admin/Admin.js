@@ -39,7 +39,7 @@ export default class Admin extends Component {
         const data = res.data
         this.setState({ 
           aboutID:data.about[0]._id,
-          aboutbioImgage:data.about[0].bioImg,
+          aboutbioImage:data.about[0].bioImg,
           aboutName: data.about[0].name,
           aboutBio: data.about[0].bio,
           aboutFBURL: data.about[0].facebookURL,
@@ -47,10 +47,9 @@ export default class Admin extends Component {
           aboutLIURL: data.about[0].linkedinURL,
           aboutEmail: data.about[0].email,
           aboutPhone: data.about[0].phone,
-          homepageID: data.homepage[0]._id,
-          homeBackImg: data.homepage[0].bckImage,
-          homeMessage: data.homepage[0].message,
-          homeTitle: data.homepage[0].title,
+          homeBackImg: data.about[0].backImg,
+          homeMessage: data.about[0].message,
+          homeTitle: data.about[0].title,
           projects: data.portfolio
         })
         console.log(data.about[0].name + " " + data.homepage[0].title + " " + data.portfolio[0].name)
@@ -77,8 +76,11 @@ export default class Admin extends Component {
       API.updateAbout({
         _id: this.state.aboutID,
         name: this.state.aboutName,
-        bioImage: this.state.aboutbioImage,
+        bioImg: this.state.aboutbioImage,
         bio: this.state.aboutBio,
+        backImg: this.state.homeBackImg,
+        message: this.state.homeMessage,
+        title: this.state.homeTitle,
         facebookURL: this.state.aboutFBURL,
         linkedinURL: this.state.aboutLIURL,
         githubURL: this.state.aboutGHURL,
@@ -126,9 +128,9 @@ export default class Admin extends Component {
                 placeholder="Homepage Title"
               />
               <Input
-                value={this.state.aboutbioImgage}
+                value={this.state.aboutbioImage}
                 onChange={this.handleInputChange}
-                name="aboutbioImgage"
+                name="aboutbioImage"
                 placeholder="Biography Image URL"
               />
               <Input
