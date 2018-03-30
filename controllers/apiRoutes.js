@@ -64,20 +64,21 @@ console.log("exporting properly")
     });
 
 
-    // Route for grabbing a specific Portfolio item by id, populate it with it's note
-    // app.get("/portfolio/:id", function(req, res) {
+    //Route for grabbing a specific Portfolio item by id, populate it with it's note
+    //do not comment this out!
+    app.get("/portfolioModal/:id", function(req, res) {
 
-    //   db.Portfolio.findOne({ _id: req.params.id })
-    //     // .populate("note")  // do we need to populate anything on the portfolio? 
-    //     .then(function(dbPortfolio) {
+      db.Portfolio.findOne({ _id: req.params.id })
+        // .populate("note")  // do we need to populate anything on the portfolio? 
+        .then(function(dbPortfolio) {
 
-    //       res.json(dbPortfolio);
-    //     })
-    //     .catch(function(err) {
+          res.json(dbPortfolio);
+        })
+        .catch(function(err) {
 
-    //       res.json(err);
-    //     });
-    // });
+          res.json(err);
+        });
+    });
 
     //Route for getting Home page info
     app.get("/home", function(req, res) {
