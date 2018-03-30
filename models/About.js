@@ -20,6 +20,26 @@ var AboutSchema = new Schema({
     type: String,
     required: false
   },
+  facebookURL: {
+    type: String,
+    required: false
+  },
+  githubURL: {
+    type: String,
+    required: false
+  },
+  linkedinURL: {
+    type: String,
+    required: false
+  },
+  email: {
+    type: String,
+    required: false
+  },
+  phone: {
+    type: String,
+    required: false
+  }
 });
 
 // This creates our model from the above schema, using mongoose's model method

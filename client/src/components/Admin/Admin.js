@@ -9,9 +9,15 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 
 export default class Admin extends Component {
   state = {
-    aboutbioImgage: "",
+    aboutID: "",
+    aboutbioImage: "",
     aboutName: "",
     aboutBio: "",
+    aboutFBURL: "",
+    aboutGHURL: "",
+    aboutLIURL: "",
+    aboutEmail: "",
+    aboutPhone: "",
     homeBackImg: "",
     homeMessage: "",
     homeTitle: "",
@@ -26,15 +32,22 @@ export default class Admin extends Component {
   }
 
   loadPage = () => {
-    console.log("loadpage");
+    console.log("loadPage in Admin");
     API.getAll()
       .then(res =>{
         console.log(res.data)
         const data = res.data
         this.setState({ 
+          aboutID:data.about[0]._id,
           aboutbioImgage:data.about[0].bioImg,
           aboutName: data.about[0].name,
           aboutBio: data.about[0].bio,
+          aboutFBURL: data.about[0].facebookURL,
+          aboutGHURL: data.about[0].githubURL,
+          aboutLIURL: data.about[0].linkedinURL,
+          aboutEmail: data.about[0].email,
+          aboutPhone: data.about[0].phone,
+          homepageID: data.homepage[0]._id,
           homeBackImg: data.homepage[0].bckImage,
           homeMessage: data.homepage[0].message,
           homeTitle: data.homepage[0].title,
@@ -47,7 +60,7 @@ export default class Admin extends Component {
 
   deleteProject = id => {
     API.deleteProject(id)
-      .then(res => this.loadProjects())
+      .then(res => this.loadPage())
       .catch(err => console.log(err));
   };
 
@@ -58,7 +71,25 @@ export default class Admin extends Component {
     });
   };
 
-  handleFormSubmit = event => {
+  handleAboutSubmit = event => {
+    event.preventDefault();
+      console.log(`Inside handleAboutSubmit. Profile ID: ${this.state.aboutID} ${this.state.aboutName} ${this.state.aboutbioImage} ${this.state.aboutBio}`);
+      API.updateAbout({
+        _id: this.state.aboutID,
+        name: this.state.aboutName,
+        bioImage: this.state.aboutbioImage,
+        bio: this.state.aboutBio,
+        facebookURL: this.state.aboutFBURL,
+        linkedinURL: this.state.aboutLIURL,
+        githubURL: this.state.aboutGHURL,
+        email: this.state.aboutEmail,
+        phone: this.state.aboutPhone
+      })
+        .then(res => this.loadPage())
+        .catch(err => console.log(err));
+  };
+
+  handleProjectSubmit = event => {
     event.preventDefault();
     if (this.state.name && this.state.portDes) {
       API.saveProject({
@@ -68,7 +99,7 @@ export default class Admin extends Component {
         githubURL: this.state.githubURL,
         liveLink: this.state.liveLink
       })
-        .then(res => this.renderPage())
+        .then(res => this.loadPage())
         .catch(err => console.log(err));
     }
   };
@@ -95,6 +126,42 @@ export default class Admin extends Component {
                 placeholder="Homepage Title"
               />
               <Input
+                value={this.state.aboutbioImgage}
+                onChange={this.handleInputChange}
+                name="aboutbioImgage"
+                placeholder="Biography Image URL"
+              />
+              <Input
+                value={this.state.aboutFBURL}
+                onChange={this.handleInputChange}
+                name="aboutFBURL"
+                placeholder="Biography Image URL"
+              />
+              <Input
+                value={this.state.aboutGHURL}
+                onChange={this.handleInputChange}
+                name="aboutGHURL"
+                placeholder="Biography Image URL"
+              />
+              <Input
+                value={this.state.aboutLIURL}
+                onChange={this.handleInputChange}
+                name="aboutLIURL"
+                placeholder="Biography Image URL"
+              />
+              <Input
+                value={this.state.aboutEmail}
+                onChange={this.handleInputChange}
+                name="aboutEmail"
+                placeholder="Biography Image URL"
+              />
+              <Input
+                value={this.state.aboutPhone}
+                onChange={this.handleInputChange}
+                name="aboutPhone"
+                placeholder="Biography Image URL"
+              />
+              <Input
                 value={this.state.homeMessage}
                 onChange={this.handleInputChange}
                 name="homeMessage"
@@ -106,12 +173,6 @@ export default class Admin extends Component {
                 name="homeBackImg"
                 placeholder="Homepage Background Image"
               />
-              <Input
-                value={this.state.aboutbioImgage}
-                onChange={this.handleInputChange}
-                name="aboutbioImgage"
-                placeholder="Biography Image URL"
-              />
               <TextArea
                 value={this.state.aboutBio}
                 onChange={this.handleInputChange}
@@ -120,7 +181,7 @@ export default class Admin extends Component {
               />
               <FormBtn
                 disabled={!(this.state.aboutName && this.state.aboutBio)}
-                onClick={this.handleFormSubmit}
+                onClick={this.handleAboutSubmit}
               >
                 Submit Bio
               </FormBtn>
@@ -165,7 +226,7 @@ export default class Admin extends Component {
               />
               <FormBtn
                 disabled={!(this.state.portDes && this.state.portName)}
-                onClick={this.handleFormSubmit}
+                onClick={this.handleProjectSubmit}
               >
                 Submit Project
               </FormBtn>
