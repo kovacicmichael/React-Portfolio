@@ -124,8 +124,9 @@ export default class Projects extends Component {
 
                 {this.state.projects.map(project => (
                 
-                    <div class="projectName">{project.name}
+                    <div class="imgContainer">
                       <img src={project.portImg} id="one" class="button" key={project._id} reactid= {project._id} onClick = {this.renderDetails} ></img>
+                      <div class="text">{project.name}</div>
                     </div>
                 
                 ))}

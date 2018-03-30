@@ -34,10 +34,20 @@
 
 }
 
-.projectName{
+.imgContainer{
   position: relative;
-  max-width: 330px;
   float: left;
+}
+
+.text{
+  position: absolute;
+  bottom: 25%;
+  right: 5.5%;
+  background-color: white;
+  width: 250px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18pt;
 }
 
 
