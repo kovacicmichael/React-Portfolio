@@ -9,9 +9,7 @@ import About from '../About';
 import Projects from '../Projects';
 import Skills from '../Skills';
 import Footer from '../Footer';
-
-
-
+import path from "path";
 
 /*
 found this function here 
@@ -40,6 +38,7 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.loadPage();
+    
   }
 
   loadPage = () => {
@@ -49,16 +48,13 @@ export default class Home extends Component {
       	console.log(res.data)
       	const data = res.data
         this.setState({ 
-        	aboutbioImgae:data.about[0].bioImg,
-		   	aboutName: data.about[0].name,
-		    aboutBio: data.about[0].bio,
+        	
 		    homeBackImg: data.homepage[0].bckImage,
 		    homeMessage: data.homepage[0].message,
 		    homeTitle: data.homepage[0].title,
-		    portImage: data.portfolio[0].portImg,
-		    portName: data.portfolio[0].name,
-		    portDes: data.portfolio[0].projectDes,
+		    
         })
+        console.log("background image: " + this.state.homeBackImg)
     })
       .catch(err => console.log(err));
   };
@@ -73,7 +69,7 @@ export default class Home extends Component {
 		        <div class= "fluid-container" >
 		          <Navbar />
 		          	<div class="fluid-container">
-						<Jumbotron style={{backgroundImage: "url(" + this.state.homeBackImg + ")"}}>
+						<Jumbotron id = "background" >
 							<div class="textHome">
 								<h2>{this.state.homeMessage}</h2>
 								<p>{this.state.homeTitle}</p>
@@ -97,3 +93,8 @@ export default class Home extends Component {
 		)
 	}
 } 
+
+
+
+
+// style={{backgroundImage: "url('" + this.state.homeBackImg + "')"}}

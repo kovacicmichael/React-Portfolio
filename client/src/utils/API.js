@@ -5,6 +5,7 @@ export default {
   getAll: function() {
     return axios.get("/api/renderPage");
   },
+  //gets the appropriate project for the modal
   getProject: function(id){
     return axios.get("/portfolio/" + id);
   },
@@ -17,3 +18,9 @@ export default {
     return axios.post("/api/project", projectData);
   }
 };
+
+
+
+
+
+

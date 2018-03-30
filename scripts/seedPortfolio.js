@@ -49,6 +49,14 @@ const portfolio = [
     githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
     liveLink: "",
     portfolioClicks: 0
+  },
+  {
+    portImg: "http://via.placeholder.com/250x250",
+    name: "Project Six Name",
+    projectDes: "A Sixth cool project",
+    githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
+    liveLink: "",
+    portfolioClicks: 0
   }
 ]
 
