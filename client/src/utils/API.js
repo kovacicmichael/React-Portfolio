@@ -22,7 +22,8 @@ export default {
 
   //gets the appropriate project for the modal
   getProject: function(id){
-    return axios.get("/portfolio/" + id);
+    console.log("here")
+    return axios.get("/portfolioModal/" + id);
   },
   // Deletes the project with the given id
   deleteProject: function(id) {
