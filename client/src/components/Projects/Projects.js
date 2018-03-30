@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Projects.css'
 import API from "../../utils/API";
+import {Grid, Col, Image } from 'react-bootstrap'
 
 
 // document.getElementByClass("button").onclick(function(){
@@ -39,14 +40,13 @@ export default class Projects extends Component {
     // };
 
 
-    //this code toggles off the modal
+    //this code prevents the modal from hiding when the modal window is clicked
     document.getElementsByClassName("modal")[0].onclick = function(event){
-        
         event.stopPropagation();
-        //console.log('modal is clicked');
       }
+    //this code toggles the modal off
     document.getElementById("modal-container").onclick = function(){
-      this.setAttribute('class', 'out');
+      this.classList.add("out");
       document.getElementsByTagName("body")[1].removeAttribute('modal-active');
     };
 
@@ -56,12 +56,10 @@ export default class Projects extends Component {
 
 //this will render the proper project details on the click of its image
   renderDetails = (event) => {
-
+    //allows the get request to find the data for a specific project
     const clicked = event.target
     let projectId = clicked.getAttribute("reactid");
-    console.log(projectId)
-
-
+   
     API.getProject(projectId)
       .then(res =>{
         console.log(res.data)
@@ -75,8 +73,7 @@ export default class Projects extends Component {
         })
     })
       .catch(err => console.log(err));
-
-  
+    //toggles the modal on
       var buttonId = event.target.id;
       document.getElementById("modal-container").removeAttribute("class");
       document.getElementById("modal-container").classList.add(buttonId);
@@ -86,7 +83,7 @@ export default class Projects extends Component {
 
 
   loadPage = () => {
-  	console.log("loadpage")
+  	//gets all the project data on the page load
     API.getAll()
       .then(res =>{
       	console.log(res.data.portfolio)
@@ -108,7 +105,7 @@ export default class Projects extends Component {
               <div class="modal-background">
                 <div class="modal">
                   <h2>{this.state.name}</h2>
-                  <img src= {this.state.image} />
+                  <img id="modalImage" src= {this.state.image} />
                   <p>{this.state.description}</p>
                   <a id="link" href = {this.state.urlGit} target= "_blank"> Check Out Its ReadMe </a>
                   <br />
@@ -116,27 +113,22 @@ export default class Projects extends Component {
 
                     <a id="link" href = {this.state.urlGit} target= "_blank"> This Site is Live! </a>
                     ) : ("") }
-                  <iframe src="https://www.w3schools.com"></iframe>
+                  
 
-
-
-                  {/*<svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
-                            <rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
-                          </svg>
-                        */}
                 </div>
               </div>
             </div>
-            <div class="content">
+            <div class="content container">
               <h1>Projects Go Below</h1>
-              <div class="buttons">
+              <div class="buttons col-12">
 
                 {this.state.projects.map(project => (
-
-                    <div id="one" class="button" key={project._id} reactid= {project._id} onClick = {this.renderDetails} >{project.name}</div>
-
-                ))}
                 
+                    <div class="projectName">{project.name}
+                      <img src={project.portImg} id="one" class="button" key={project._id} reactid= {project._id} onClick = {this.renderDetails} ></img>
+                    </div>
+                
+                ))}
                 
               </div>
             </div>

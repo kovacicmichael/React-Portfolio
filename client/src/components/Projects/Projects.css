@@ -15,7 +15,36 @@
   color:black;
 }
 
+.modal{
+  width:70%;
+  height:70%;
+}
 
+#modalImage{
+
+  float: left;
+}
+
+.button{
+  height:200px;
+  width: 250px;
+  margin: 10px, 20px, 10px, 20px;
+  position: relative;
+
+
+}
+
+.projectName{
+  position: relative;
+  max-width: 330px;
+  float: left;
+}
+
+
+
+
+
+/*modal css*/
 html.modal-active, body.modal-active {
   overflow: hidden;
 }
@@ -45,27 +74,6 @@ html.modal-active, body.modal-active {
 #modal-container.one.out .modal-background .modal {
   animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-
-
-
-
-#modal-container.two {
-  transform: scaleY(0.01) scaleX(0);
-  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-#modal-container.two .modal-background .modal {
-  transform: scale(0);
-  animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-#modal-container.two.out {
-  transform: scale(1);
-  animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-#modal-container.two.out .modal-background .modal {
-  animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-
 
 
 #modal-container .modal-background {
@@ -120,7 +128,7 @@ html.modal-active, body.modal-active {
   line-height: 30px;
 }
 .content .buttons {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -128,9 +136,8 @@ html.modal-active, body.modal-active {
 .content .buttons .button {
   display: inline-block;
   text-align: center;
-  padding: 10px 15px;
-  margin: 10px;
-  background: red;
+  
+  margin: 15px;
   font-size: 18px;
   background-color: #efefef;
   border-radius: 3px;
@@ -441,3 +448,14 @@ html.modal-active, body.modal-active {
     transform: scale(0);
   }
 }
+
+.button{
+  height:200px;
+  width: 250px;
+  margin: 10px, 20px, 10px, 20px;
+
+}
+
+
+
+
