@@ -9,6 +9,52 @@
   font-family: helvetica neue, helvetica, arial, sans-serif;
   font-weight: 200;
 }*/
+
+
+#link{
+  color:black;
+}
+
+.modal{
+  width:70%;
+  height:70%;
+}
+
+#modalImage{
+
+  float: left;
+}
+
+.button{
+  height:200px;
+  width: 250px;
+  margin: 10px, 20px, 10px, 20px;
+  position: relative;
+
+
+}
+
+.imgContainer{
+  position: relative;
+  float: left;
+}
+
+.text{
+  position: absolute;
+  bottom: 25%;
+  right: 5.5%;
+  background-color: white;
+  width: 250px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18pt;
+}
+
+
+
+
+
+/*modal css*/
 html.modal-active, body.modal-active {
   overflow: hidden;
 }
@@ -39,6 +85,7 @@ html.modal-active, body.modal-active {
   animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
+
 #modal-container .modal-background {
   display: table-cell;
   background: rgba(0, 0, 0, 0.8);
@@ -52,6 +99,7 @@ html.modal-active, body.modal-active {
   border-radius: 3px;
   font-weight: 300;
   position: relative;
+  overflow-y: auto;
 }
 #modal-container .modal-background .modal h2 {
   font-size: 25px;
@@ -91,7 +139,7 @@ html.modal-active, body.modal-active {
   line-height: 30px;
 }
 .content .buttons {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -99,9 +147,8 @@ html.modal-active, body.modal-active {
 .content .buttons .button {
   display: inline-block;
   text-align: center;
-  padding: 10px 15px;
-  margin: 10px;
-  background: red;
+  
+  margin: 15px;
   font-size: 18px;
   background-color: #efefef;
   border-radius: 3px;
@@ -412,3 +459,9 @@ html.modal-active, body.modal-active {
     transform: scale(0);
   }
 }
+
+
+
+
+
+

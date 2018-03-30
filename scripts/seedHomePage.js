@@ -12,7 +12,7 @@ mongoose.connect(
 
 const homePage = [
   {
-    bckImage: "https://www.nationalparks.org/sites/default/files/yosemite-merced.jpg",
+    bckImage: "yosemite-merced.jpg",
     message: "Hello, I am Michael",
     title: "A Full Stack Web Developer"
   }
