@@ -74,7 +74,7 @@ export default class Home extends Component {
 		          <Navbar />
 		          	<div class="fluid-container">
 						<Jumbotron style={{backgroundImage: "url(" + this.state.homeBackImg + ")"}}>
-							<div class="text">
+							<div class="textHome">
 								<h2>{this.state.homeMessage}</h2>
 								<p>{this.state.homeTitle}</p>
 								<br />

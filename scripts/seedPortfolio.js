@@ -14,7 +14,7 @@ const portfolio = [
     portImg: "http://via.placeholder.com/250x250",
     name: "Project One Name",
     projectDes: "A cool project",
-    githubURL: "https://github.com",
+    githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
     liveLink: "https://github.com",
     portfolioClicks: 0
   },
@@ -22,7 +22,7 @@ const portfolio = [
     portImg: "http://via.placeholder.com/250x250",
     name: "Project Two Name",
     projectDes: "Another cool project",
-    githubURL: "https://github.com",
+    githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
     liveLink: "https://github.com",
     portfolioClicks: 0
   },
@@ -30,8 +30,24 @@ const portfolio = [
     portImg: "http://via.placeholder.com/250x250",
     name: "Project Three Name",
     projectDes: "A THIRD cool project",
-    githubURL: "https://github.com",
+    githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
     liveLink: "https://github.com",
+    portfolioClicks: 0
+  },
+  {
+    portImg: "http://via.placeholder.com/250x250",
+    name: "Project Four Name",
+    projectDes: "A Fourth cool project",
+    githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
+    liveLink: "https://github.com",
+    portfolioClicks: 0
+  },
+  {
+    portImg: "http://via.placeholder.com/250x250",
+    name: "Project Five Name",
+    projectDes: "A Fifth cool project",
+    githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
+    liveLink: "",
     portfolioClicks: 0
   }
 ]
