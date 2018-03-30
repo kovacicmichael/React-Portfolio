@@ -65,19 +65,19 @@ console.log("exporting properly")
 
 
     // Route for grabbing a specific Portfolio item by id, populate it with it's note
-    app.get("/portfolio/:id", function(req, res) {
+    // app.get("/portfolio/:id", function(req, res) {
 
-      db.Portfolio.findOne({ _id: req.params.id })
-        // .populate("note")  // do we need to populate anything on the portfolio? 
-        .then(function(dbPortfolio) {
+    //   db.Portfolio.findOne({ _id: req.params.id })
+    //     // .populate("note")  // do we need to populate anything on the portfolio? 
+    //     .then(function(dbPortfolio) {
 
-          res.json(dbPortfolio);
-        })
-        .catch(function(err) {
+    //       res.json(dbPortfolio);
+    //     })
+    //     .catch(function(err) {
 
-          res.json(err);
-        });
-    });
+    //       res.json(err);
+    //     });
+    // });
 
     //Route for getting Home page info
     app.get("/home", function(req, res) {
@@ -229,32 +229,24 @@ console.log("exporting properly")
         });
     });
 
-    // Route for saving/updating an Article's associated Note
-    app.post("/about/:ID", function(req, res) {
+    // Route for saving/updating About (bio) information
+    app.post("/about/:id", function(req, res) {
 
       var aboutID = req.params.id
-
-      db.About.update(req.body)
-        .then(function(dbPortfolio) {
-          console.log("New Portfolio ID: " + dbAbout._id)
+      console.log(`aboutID: ${aboutID}`)
+      console.log(`Req.body: ${JSON.stringify(req.body)}`)
+      db.About.findOneAndUpdate({ _id: aboutID}, req.body)
+        .then(function(dbAbout) {
+          console.log("Updated About ID: " + dbAbout._id)
         })
-        .then(function(dbPortfolio) {
+        .then(function(dbAbout) {
           // If the Article was updated successfully, send it back to the client
-          res.json(dbPortfolio);
+          res.json(dbAbout);
         })
-        .catch(function(dbPortfolio) {
+        .catch(function(dbAbout) {
           // If an error occurs, send it back to the client
           res.json(err);
         });
     });
-
-
-
-
-
-
-
-
-
 
 }

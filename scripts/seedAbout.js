@@ -15,7 +15,12 @@ const about = [
   {
     bioImage: "http://via.placeholder.com/225x225",
     name: "Michael",
-    bio: "This is a little about myself"
+    bio: "This is a little about myself",
+    facebookURL: "https://facebook.com",
+    githubURL: "https://github.com",
+    linkedinURL: "https://linkedin.com",
+    email: "you@email.com",
+    phone: "3035551212"
   }
 ]
 
