@@ -49,9 +49,9 @@ export default class Home extends Component {
       	const data = res.data
         this.setState({ 
         	
-		    homeBackImg: data.homepage[0].bckImage,
-		    homeMessage: data.homepage[0].message,
-		    homeTitle: data.homepage[0].title,
+		    homeBackImg: data.about[0].bckImage,
+		    homeMessage: data.about[0].name,
+		    homeTitle: data.about[0].title,
 		    
         })
         console.log("background image: " + this.state.homeBackImg)
