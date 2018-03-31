@@ -21,8 +21,11 @@ export default class Admin extends Component {
     homeBackImg: "",
     homeMessage: "",
     homeTitle: "",
+    portSortOrder: "",
     portImage: "",
     portName: "",
+    portGithubURL: "",
+    portLiveLink: "",
     portDes: "",
     projects: ""
   };
@@ -52,14 +55,18 @@ export default class Admin extends Component {
           homeTitle: data.about[0].title,
           projects: data.portfolio
         })
-        console.log(data.about[0].name + " " + data.homepage[0].title + " " + data.portfolio[0].name)
+        console.log(data.about[0].name + " " + data.about[0].title + " " + data.portfolio[0].name)
     })
       .catch(err => console.log(err));
   };
 
   deleteProject = id => {
+    console.log("Delete project");
     API.deleteProject(id)
-      .then(res => this.loadPage())
+      .then(res => {
+        console.log("Did delete project");
+        this.loadPage()
+      })
       .catch(err => console.log(err));
   };
 
@@ -93,27 +100,30 @@ export default class Admin extends Component {
 
   handleProjectSubmit = event => {
     event.preventDefault();
-    if (this.state.name && this.state.portDes) {
       API.saveProject({
-        name: this.state.name,
-        portImg: this.state.portImg,
+        name: this.state.portName,
+        portSortOrder: this.state.portSortOrder,
+        portImg: this.state.portImage,
         portDes: this.state.portDes,
-        githubURL: this.state.githubURL,
-        liveLink: this.state.liveLink
+        githubURL: this.state.portGithubURL,
+        liveLink: this.state.portLiveLink,
+        portfolioClicks: 0
       })
         .then(res => this.loadPage())
         .catch(err => console.log(err));
-    }
   };
 
   render() {
     return (
       <Container fluid>
         <Row>
-          <Col size = "md-12">
+          <Col size = "sm-12 md-12">
             <Jumbotron>
               <h1>Enter Home Page and Bio Information Here</h1>
             </Jumbotron>
+          </Col>
+          <Col size = "md-6">
+            <h1>Personal Profile</h1>
             <form>
               <Input
                 value={this.state.aboutName}
@@ -191,10 +201,10 @@ export default class Admin extends Component {
           </Col>
         </Row>
         <Row>
-          <Col size="md-6">
-            <Jumbotron>
+          <Col size="md-6 sm-12">
+
               <h1>Enter New Portfolio Project</h1>
-            </Jumbotron>
+
             <form>
               <Input
                 value={this.state.portName}
@@ -203,21 +213,27 @@ export default class Admin extends Component {
                 placeholder="Project Name (required)"
               />
               <Input
-                value={this.state.portImg}
+                value={this.state.portSortOrder}
                 onChange={this.handleInputChange}
-                name="portImg"
+                name="portSortOrder"
+                placeholder="Project Display Position (required)"
+              />
+              <Input
+                value={this.state.portImage}
+                onChange={this.handleInputChange}
+                name="portImage"
                 placeholder="Project Image"
               />
               <Input
-                value={this.state.githubURL}
+                value={this.state.portGithubURL}
                 onChange={this.handleInputChange}
-                name="githubURL"
+                name="portGithubURL"
                 placeholder="GitHub URL (Optional)"
               />
               <Input
-                value={this.state.liveLink}
+                value={this.state.portLiveLink}
                 onChange={this.handleInputChange}
-                name="liveLink"
+                name="portLiveLink"
                 placeholder="Live Link (Optional)"
               />
               <TextArea
@@ -235,19 +251,23 @@ export default class Admin extends Component {
             </form>
           </Col>
           <Col size="md-6 sm-12">
-            <Jumbotron>
+
               <h1>Projects</h1>
-            </Jumbotron>
+
               {this.state.projects.length ? (
               <List>
                 {this.state.projects.map(project => (
                   <ListItem key={project._id}>
-                    <Link to={"/books/" + project._id}>
-                      <strong>
-                        {project.name}, {project.projectDes} Image: {project.portImg} ID: {project._id}
-                      </strong>
-                    </Link>
                     <DeleteBtn onClick={() => this.deleteProject(project._id)} />
+                    <Link to={"/portfolio/" + project._id}>
+                      <p><strong>{project.name}</strong></p>
+                    </Link>
+                    <p><strong>Description  : {project.portDes}</strong></p>
+                    <p><strong>GitHub Link  :{project.githubURL}</strong></p>
+                    <p><strong>Live Link    :{project.liveLink}</strong></p>
+                    <p><strong>Image LInk   :{project.portImg}</strong></p>
+                    <p><strong>Number Views :{project.portfolioClicks}</strong></p>
+                    <p></p>
                   </ListItem>
                 ))}
               </List>

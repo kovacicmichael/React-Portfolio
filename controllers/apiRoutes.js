@@ -10,23 +10,20 @@ const router = require("express").Router();
 console.log("api routes page")
 module.exports = function(app){
 
-console.log("exporting properly")
+  console.log("exporting properly")
 
 
 
-    // Route for getting all Portfolio items from the db
+    // Route for getting all Portfolio items and profile information from the db
     app.get("/api/renderPage", function(req, res) {
 
-      console.log("here in the get route")
+      console.log("here in the renderPage route")
   
       let promiseArray = [
         db.Portfolio.find({}),
         db.About.find({}),
-        db.HomePage.find({})
+        // db.Contact.find({})
       ];
-
-
-      //console.log(promiseArray)
 
       Promise.all(promiseArray).then(function(values) {
 
@@ -34,7 +31,7 @@ console.log("exporting properly")
           res.json({
             portfolio: values[0],
             about: values[1],
-            homepage: values[2]
+            // contact: values[2]
           });
           console.log("we are hereeeeee")
 
@@ -43,25 +40,8 @@ console.log("exporting properly")
           res.json(err);
         });
 
-      // db.Portfolio.find({})
-      //   .then(function(dbPortfolio) {
-      //     db.About.find({}).then(function(dbAbout) {
-      //       db.HomePage.find({}).then(function(dbHomePage) {
-      //           res.json({
-      //             portfolio: dbPortfolio,
-      //             about: dbAbout,
-      //             homepage: dbHomePage
-      //           });
-      //       })
-      //     })
-
-      //   })
-      //   .catch(function(err) {
-
-      //     res.json(err);
-      //   });
-
     });
+
 
 
     //Route for grabbing a specific Portfolio item by id, populate it with it's note
@@ -80,13 +60,13 @@ console.log("exporting properly")
         });
     });
 
-    //Route for getting Home page info
-    app.get("/home", function(req, res) {
+    //Route for getting contact
+    app.get("/contacts", function(req, res) {
 
-      db.HomePage.find({})
-        .then(function(dbHome){
+      db.Contact.find({})
+        .then(function(dbContacts){
 
-          res.json(dbHome);
+          res.json(dbContacts);
 
         })
         .catch(function(err) {
@@ -96,19 +76,19 @@ console.log("exporting properly")
     });
 
     // Route for getting Home page info
-    app.get("/home", function(req, res) {
+    // app.get("/home", function(req, res) {
 
-      db.HomePage.find({})
-        .then(function(dbHome){
+    //   db.HomePage.find({})
+    //     .then(function(dbHome){
 
-          res.json(dbHome);
+    //       res.json(dbHome);
 
-        })
-        .catch(function(err) {
+    //     })
+    //     .catch(function(err) {
 
-          res.json(err);
-        });
-    });
+    //       res.json(err);
+    //     });
+    // });
 
     //Route for getting About page
     app.get("/about", function(req, res) {
@@ -145,73 +125,91 @@ console.log("exporting properly")
 
       var portfolioID = req.params.id
 
-      db.Portfolio.update(req.body)
+      db.Portfolio.findOneAndUpdate(req.body)
         .then(function(dbPortfolio) {
-          console.log("New Portfolio ID: " + dbPortfolio._id)
+          console.log("Updated Portfolio ID: " + dbPortfolio._id)
         })
         .then(function(dbPortfolio) {
           // If the Article was updated successfully, send it back to the client
           res.json(dbPortfolio);
         })
-        .catch(function(dbPortfolio) {
+        .catch(function(err) {
           // If an error occurs, send it back to the client
           res.json(err);
         });
     });
 
+    // Route for deleting an existing portfolio 
+    app.delete("/portfolio/:id", function(req, res) {
 
-    // Route for updating an existing portfolio 
+      var portfolioID = req.params.id
+
+      db.Portfolio.remove({ _id: portfolioID })
+        .then(function(dbPortfolio) {
+          console.log("Deleted Portfolio ID: " + portfolioID)
+        })
+        .then(function(dbPortfolio) {
+          res.json(dbPortfolio);
+        })
+        .catch(function(err) {
+          // If an error occurs, send it back to the client
+          res.json(err);
+        });
+    });
+
+    // Route for adding a new portfolio project 
     app.post("/portfolio", function(req, res) {
-
+      console.log(`Inside the /portfolio POST route.`)
+      console.log(req.body)
       db.Portfolio.create(req.body)
         .then(function(dbPortfolio) {
           console.log("New Portfolio ID: " + dbPortfolio._id)
         })
         .then(function(dbPortfolio) {
-          // If the Article was updated successfully, send it back to the client
+
           res.json(dbPortfolio);
         })
-        .catch(function(dbPortfolio) {
-          // If an error occurs, send it back to the client
+        .catch(function(err) {
+
           res.json(err);
         });
     });
     // Route for saving/updating an Article's associated Note
-    app.post("/home", function(req, res) {
+    // app.post("/home", function(req, res) {
 
-      db.HomePage.create(req.body)
-        .then(function(dbPortfolio) {
-          console.log("New Portfolio ID: " + dbHome._id)
-        })
-        .then(function(dbPortfolio) {
-          // If the Article was updated successfully, send it back to the client
-          res.json(dbPortfolio);
-        })
-        .catch(function(dbPortfolio) {
-          // If an error occurs, send it back to the client
-          res.json(err);
-        });
-    });
+    //   db.HomePage.create(req.body)
+    //     .then(function(dbPortfolio) {
+    //       console.log("New Portfolio ID: " + dbHome._id)
+    //     })
+    //     .then(function(dbPortfolio) {
+    //       // If the Article was updated successfully, send it back to the client
+    //       res.json(dbPortfolio);
+    //     })
+    //     .catch(function(err) {
+    //       // If an error occurs, send it back to the client
+    //       res.json(err);
+    //     });
+    // });
 
 
     // Route for saving/updating 
-    app.post("/home/:ID", function(req, res) {
+    // app.post("/home/:ID", function(req, res) {
 
-      var homeID = req.params.id
+    //   var homeID = req.params.id
 
-      db.HomePage.update(req.body)
-        .then(function(dbPortfolio) {
-          console.log("New Portfolio ID: " + dbHome._id)
-        })
-        .then(function(dbPortfolio) {
-          // If the Article was updated successfully, send it back to the client
-          res.json(dbPortfolio);
-        })
-        .catch(function(dbPortfolio) {
-          // If an error occurs, send it back to the client
-          res.json(err);
-        });
-    });
+    //   db.HomePage.update(req.body)
+    //     .then(function(dbPortfolio) {
+    //       console.log("New Portfolio ID: " + dbHome._id)
+    //     })
+    //     .then(function(dbPortfolio) {
+    //       // If the Article was updated successfully, send it back to the client
+    //       res.json(dbPortfolio);
+    //     })
+    //     .catch(function(err) {
+    //       // If an error occurs, send it back to the client
+    //       res.json(err);
+    //     });
+    // });
 
     // Route for saving/updating an Article's associated Note
     app.post("/about", function(req, res) {
@@ -224,7 +222,7 @@ console.log("exporting properly")
           // If the Article was updated successfully, send it back to the client
           res.json(dbPortfolio);
         })
-        .catch(function(dbPortfolio) {
+        .catch(function(err) {
           // If an error occurs, send it back to the client
           res.json(err);
         });
@@ -244,7 +242,7 @@ console.log("exporting properly")
           // If the Article was updated successfully, send it back to the client
           res.json(dbAbout);
         })
-        .catch(function(dbAbout) {
+        .catch(function(err) {
           // If an error occurs, send it back to the client
           res.json(err);
         });
