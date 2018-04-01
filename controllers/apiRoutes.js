@@ -22,7 +22,7 @@ module.exports = function(app){
       let promiseArray = [
         db.Portfolio.find({}),
         db.About.find({}),
-        // db.Contact.find({})
+        db.Contact.find({})
       ];
 
       Promise.all(promiseArray).then(function(values) {
@@ -31,9 +31,9 @@ module.exports = function(app){
           res.json({
             portfolio: values[0],
             about: values[1],
-            // contact: values[2]
+            contacts: values[2]
           });
-          console.log("we are hereeeeee")
+        console.log("we are hereeeeee")
 
         }).catch(function(err) {
 
@@ -60,7 +60,7 @@ module.exports = function(app){
         });
     });
 
-    //Route for getting contact
+    //Route for getting all contacts
     app.get("/contacts", function(req, res) {
 
       db.Contact.find({})
@@ -71,6 +71,24 @@ module.exports = function(app){
         })
         .catch(function(err) {
 
+          res.json(err);
+        });
+    });
+
+        // Route for deleting an existing contact 
+    app.delete("/contacts/:id", function(req, res) {
+
+      var contactID = req.params.id
+
+      db.Contact.remove({ _id: contactID })
+        .then(function(dbContact) {
+          console.log("Deleted Contact ID: " + contactID)
+        })
+        .then(function(dbContact) {
+          res.json(dbContact);
+        })
+        .catch(function(err) {
+          // If an error occurs, send it back to the client
           res.json(err);
         });
     });

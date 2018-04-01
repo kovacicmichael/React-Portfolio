@@ -27,7 +27,12 @@ export default class Admin extends Component {
     portGithubURL: "",
     portLiveLink: "",
     portDes: "",
-    projects: ""
+    projects: "",
+    contactName: "",
+    contactEmail: "",
+    contactSubject: "",
+    contactMessage: "",
+    contacts: ""
   };
 
   componentDidMount() {
@@ -53,9 +58,10 @@ export default class Admin extends Component {
           homeBackImg: data.about[0].backImg,
           homeMessage: data.about[0].message,
           homeTitle: data.about[0].title,
-          projects: data.portfolio
+          projects: data.portfolio,
+          contacts: data.contacts
         })
-        console.log(data.about[0].name + " " + data.about[0].title + " " + data.portfolio[0].name)
+        console.log(data.about[0].name + " " + data.about[0].title + " " + data.portfolio[0].name + " "+ data.contacts[0].name)
     })
       .catch(err => console.log(err));
   };
@@ -64,7 +70,17 @@ export default class Admin extends Component {
     console.log("Delete project");
     API.deleteProject(id)
       .then(res => {
-        console.log("Did delete project");
+        console.log("Delete project");
+        this.loadPage()
+      })
+      .catch(err => console.log(err));
+  };
+
+  deleteContact = id => {
+    console.log("Delete contact");
+    API.deleteContact(id)
+      .then(res => {
+        console.log("Deleted Contact");
         this.loadPage()
       })
       .catch(err => console.log(err));
@@ -198,6 +214,28 @@ export default class Admin extends Component {
                 Submit Bio
               </FormBtn>
             </form>
+          </Col>
+
+          <Col size = "md-6">
+
+            <h1>Registered Contacts</h1>
+          
+            {this.state.contacts.length ? (
+              <List>
+                {this.state.contacts.map(contact => (
+                  <ListItem key={contact._id}>
+                    <DeleteBtn onClick={() => this.deleteContact(contact._id)} />
+                    <p><strong>Name    : {contact.name}</strong></p>
+                    <p><strong>Email   : {contact.email}</strong></p>
+                    <p><strong>Subject : {contact.subject}</strong></p>
+                    <p><strong>Message : {contact.message}</strong></p>
+                    <p></p>
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
           </Col>
         </Row>
         <Row>

@@ -9,16 +9,14 @@ mongoose.connect(
   
 );
 
-
-
 const about = [
   {
-    bioImg: "http://via.placeholder.com/225x225",
     name: "Michael",
+    bioImg: "http://via.placeholder.com/225x225",
+    bio: "This is a little about myself",
     backImg: "https://",
     message: "Hello World!",
     title: "Full stack developer.",
-    bio: "This is a little about myself",
     facebookURL: "https://facebook.com",
     githubURL: "https://github.com",
     linkedinURL: "https://linkedin.com",
