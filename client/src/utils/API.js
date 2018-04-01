@@ -25,9 +25,17 @@ export default {
   updateProject: function(id) {
     return axios.post("/portfolio/" + id);
   },
-
+  // saves new project to portfolios
   saveProject: function(projectData) {
     return axios.post("/portfolio", projectData);
+  },
+  //gets all existing contacts from contacts
+  getContacts: function() {
+    return axios.get("/contacts");
+  },
+  //gets all existing contacts from contacts
+  deleteContact: function(id) {
+    return axios.delete("/contacts/" + id);
   }
 };
 

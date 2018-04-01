@@ -12,6 +12,7 @@ mongoose.connect(
 const portfolio = [
   {
     portImg: "http://via.placeholder.com/250x250",
+    sortOrder: 0,
     name: "Project One Name",
     portDes: "A cool project",
     githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
@@ -20,42 +21,11 @@ const portfolio = [
   },
   {
     portImg: "http://via.placeholder.com/250x250",
+    sortOrder: 1,
     name: "Project Two Name",
     portDes: "Another cool project",
     githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
     liveLink: "https://github.com",
-    portfolioClicks: 0
-  },
-  {
-    portImg: "http://via.placeholder.com/250x250",
-    name: "Project Three Name",
-    portDes: "A THIRD cool project",
-    githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
-    liveLink: "https://github.com",
-    portfolioClicks: 0
-  },
-  {
-    portImg: "http://via.placeholder.com/250x250",
-    name: "Project Four Name",
-    portDes: "A Fourth cool project",
-    githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
-    liveLink: "https://github.com",
-    portfolioClicks: 0
-  },
-  {
-    portImg: "http://via.placeholder.com/250x250",
-    name: "Project Five Name",
-    portDes: "A Fifth cool project",
-    githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
-    liveLink: "",
-    portfolioClicks: 0
-  },
-  {
-    portImg: "http://via.placeholder.com/250x250",
-    name: "Project Six Name",
-    portDes: "A Sixth cool project",
-    githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
-    liveLink: "",
     portfolioClicks: 0
   }
 ]

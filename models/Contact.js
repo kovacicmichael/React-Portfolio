@@ -27,5 +27,5 @@ var ContactSchema = new Schema({
 // This creates our model from the above schema, using mongoose's model method
 var Contact = mongoose.model("Contact", ContactSchema);
 
-// Export the Article model
+// Export the Contact model
 module.exports = Contact;
