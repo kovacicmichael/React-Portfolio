@@ -89,6 +89,7 @@ export default class Home extends Component {
 				</div>
 				<Footer />
 			</wrapper>
+			
 			</Router>
 		)
 	}
