@@ -9,6 +9,7 @@ import About from '../About';
 import Projects from '../Projects';
 import Skills from '../Skills';
 import Footer from '../Footer';
+import Contact from '../Contact';
 import path from "path";
 
 /*
@@ -85,6 +86,8 @@ export default class Home extends Component {
 					<About />
 					<Skills />
 					<Projects />
+
+					<Contact />
 					
 				</div>
 				<Footer />
