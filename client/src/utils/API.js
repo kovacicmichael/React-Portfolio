@@ -22,8 +22,8 @@ export default {
     return axios.delete("/portfolio/" + id);
   },
   // Deletes the project with the given id
-  updateProject: function(id) {
-    return axios.post("/portfolio/" + id);
+  updateProject: function(portfolio) {
+    return axios.post("/portfolio/" + portfolio._id, portfolio);
   },
   // saves new project to portfolios
   saveProject: function(projectData) {

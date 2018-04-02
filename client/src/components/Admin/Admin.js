@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
+import UpdateBtn from "../../components/UpdateBtn";
 import API from "../../utils/API";
 import "./Admin.css"
 import { Link } from "react-router-dom";
@@ -22,6 +23,7 @@ export default class Admin extends Component {
     homeBackImg: "",
     homeMessage: "",
     homeTitle: "",
+    portID: "",
     portSortOrder: "",
     portImage: "",
     portName: "",
@@ -66,6 +68,53 @@ export default class Admin extends Component {
     })
       .catch(err => console.log(err));
   };
+
+  selectProject = id => {
+    API.getProject(id)
+    .then(res => {
+      console.log(res.data);
+      const data = res.data;
+      this.setState({
+        portID: data._id,
+        portSortOrder: data.sortOrder,
+        portImage: data.portImg,
+        portName: data.name,
+        portGithubURL: data.githubURL,
+        portLiveLink: data.liveLink,
+        portDes: data.portDes
+      })
+    })
+    .catch(err => console.log(err));
+  };
+
+  handleProjectUpdate = event => {
+    event.preventDefault();
+    console.log(`Inside handleProjectSubmit`);
+    console.log(`Portfolio ID: ${this.state.portID}`);
+      API.updateProject({
+        _id: this.state.portID,
+        name: this.state.portName,
+        sortOrder: this.state.portSortOrder,
+        portImg: this.state.portImage,
+        portDes: this.state.portDes,
+        githubURL: this.state.portGithubURL,
+        liveLink: this.state.portLiveLink
+      })
+        .then(res => this.loadPage())
+        .catch(err => console.log(err));
+
+    this.setState({ 
+      portID: "",
+      portSortOrder: "",
+      portImage: "",
+      portName: "",
+      portGithubURL: "",
+      portLiveLink: "",
+      portDes: "",
+      projects: ""
+    })
+  };
+
 
   deleteProject = id => {
     console.log("Delete project");
@@ -115,11 +164,12 @@ export default class Admin extends Component {
         .catch(err => console.log(err));
   };
 
+
   handleProjectSubmit = event => {
     event.preventDefault();
       API.saveProject({
         name: this.state.portName,
-        portSortOrder: this.state.portSortOrder,
+        sortOrder: this.state.portSortOrder,
         portImg: this.state.portImage,
         portDes: this.state.portDes,
         githubURL: this.state.portGithubURL,
@@ -128,6 +178,17 @@ export default class Admin extends Component {
       })
         .then(res => this.loadPage())
         .catch(err => console.log(err));
+
+    this.setState({ 
+      port_id: "",
+      portSortOrder: "",
+      portImage: "",
+      portName: "",
+      portGithubURL: "",
+      portLiveLink: "",
+      portDes: "",
+      projects: ""
+    })
   };
 
   render() {
@@ -282,10 +343,16 @@ export default class Admin extends Component {
                 placeholder="Project Description (required)"
               />
               <FormBtn
-                disabled={!(this.state.portDes && this.state.portName)}
+                disabled={!this.state.portDes && !this.state.portName}
                 onClick={this.handleProjectSubmit}
               >
-                Submit Project
+                Submit as New Project
+              </FormBtn>
+              <FormBtn
+                disabled={!this.state.portDes && !this.state.portName}
+                onClick={this.handleProjectUpdate}
+              >
+                Update Project
               </FormBtn>
             </form>
           </Col>
@@ -298,10 +365,9 @@ export default class Admin extends Component {
                 {this.state.projects.map(project => (
                   <ListItem key={project._id}>
                     <DeleteBtn onClick={() => this.deleteProject(project._id)} />
-                    <Link to={"/portfolio/" + project._id}>
-                      <p><strong>{project.name}</strong></p>
-                    </Link>
-                    <p><strong>Description  : {project.portDes}</strong></p>
+                    <UpdateBtn onClick={() => this.selectProject(project._id)} />
+                    <p><strong>{project.name}</strong></p>
+                    <p><strong>Description  :{project.portDes}</strong></p>
                     <p><strong>GitHub Link  :{project.githubURL}</strong></p>
                     <p><strong>Live Link    :{project.liveLink}</strong></p>
                     <p><strong>Image LInk   :{project.portImg}</strong></p>
