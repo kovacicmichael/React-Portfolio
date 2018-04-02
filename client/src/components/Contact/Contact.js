@@ -52,11 +52,11 @@ toggleForm = () => {
 
 toggleValdate = () => {
 	console.log("here in val")
-	if(document.getElementById('name').value === ""){
-		this.setState({
-			activeName: ""
-		})
-	}
+	// if(document.getElementById('name').value === ""){
+	// 	this.setState({
+	// 		activeName: ""
+	// 	})
+	// }
 }
 
 
@@ -65,7 +65,7 @@ toggleValdate = () => {
 
 	render() {
 		return (
-			<div className= "container contactContainer" >
+			<div className= "fluid-container contactContainer" >
 				
 			
 				<section class="section" onClick={this.toggleValdate}>
@@ -84,8 +84,8 @@ toggleValdate = () => {
 				               
 				                    <div class="col-md-6">
 				                        <div class="md-form">
-				                            <input type="text" id="name" name="name" class="form-control" onClick={this.toggleForm} />
-				                            <label for="name" class={this.state.activeName}>Your name</label>
+				                            <input type="text" id="name" name="name" class="form-control" onSelect={this.toggleForm} />
+				                            <label for="name" id="nameLabel"class="active">Your name</label>
 				                        </div>
 				                    </div>
 
@@ -93,7 +93,7 @@ toggleValdate = () => {
 				                    <div class="col-md-6">
 				                        <div class="md-form">
 				                            <input type="text" id="email" name="email" class="form-control" />
-				                            <label for="email" class={this.state.activeEmail}>Your email</label>
+				                            <label for="email" id="labelEmail" class="active">Your email</label>
 				                        </div>
 				                    </div>
 				                 
@@ -105,7 +105,7 @@ toggleValdate = () => {
 				                    <div class="col-md-12">
 				                        <div class="md-form">
 				                            <input type="text" id="subject" name="subject" class="form-control" />
-				                            <label for="subject" class={this.state.activeSubject}>Subject</label>
+				                            <label for="subject" id="labelSubject" class="active">Subject</label>
 				                        </div>
 				                    </div>
 				                </div>
@@ -119,7 +119,7 @@ toggleValdate = () => {
 
 				                        <div class="md-form">
 				                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-				                            <label for="message" class={this.state.activeMessage}>Your message</label>
+				                            <label for="message" id= "labelMessege" class="">Your message</label>
 				                        </div>
 
 				                    </div>
@@ -129,7 +129,7 @@ toggleValdate = () => {
 				            </form>
 
 				            <div class="center-on-small-only">
-				                <a class="btn btn-primary" onClick= {this.validateForm}>Send</a>
+				                <a class="btn btn-primary" href="mailto:kovacic316@gmail.com?Subject=subject" target="_blank" onClick= {this.validateForm}>Send</a>
 				            </div>
 				            <div id="status"></div>
 				        </div>
