@@ -1,12 +1,12 @@
 import React from "react";
-import "./DeleteBtn.css";
+import "./UpdateBtn.css";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
-const DeleteBtn = props => (
-  <span className="delete-btn" {...props}>
-    DELETE
+const UpdateBtn = props => (
+  <span className="update-btn" {...props}>
+    UPDATE
   </span>
 );
 
-export default DeleteBtn;
+export default UpdateBtn;
