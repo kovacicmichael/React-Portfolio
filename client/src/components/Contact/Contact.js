@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import './Contact.css'
+import React, { Component } from 'react';
+import './Contact.css';
+import API from "../../utils/API";
 
 export default class Contact extends Component {
 
@@ -8,7 +9,8 @@ state = {
 }
 
 
-validateForm = () => {
+validateForm = (event) => {
+	event.preventDefault();
 	console.log("inside of the validateForm")
 
 	let name =  document.getElementById('name').value;
@@ -38,7 +40,18 @@ validateForm = () => {
         return false;
     }
     document.getElementById('status').innerHTML = "Sending...";
-    document.getElementById('contact-form').submit();
+    
+    API.saveContact({
+    	name: document.getElementById('name').value,
+    	email: document.getElementById('email').value,
+    	subject: document.getElementById('subject').value,
+    	message: document.getElementById('message').value
+    })
+      .then(res =>{
+      	console.log(res.data)
+      	const data = res.data
+    })
+      .catch(err => console.log(err));
 
 }
 
@@ -57,6 +70,17 @@ toggleValdate = () => {
 	// 		activeName: ""
 	// 	})
 	// }
+}
+
+saveContact = () => {
+	API.saveContact()
+      .then(res =>{
+      	console.log(res.data)
+      	const data = res.data
+    })
+      .catch(err => console.log(err));
+
+
 }
 
 

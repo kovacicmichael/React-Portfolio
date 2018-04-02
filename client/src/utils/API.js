@@ -34,8 +34,8 @@ export default {
     return axios.get("/contacts");
   },
   //gets all existing contacts from contacts
-  saveContact: function() {
-    return axios.post("/contacts");
+  saveContact: function(data) {
+    return axios.post("/contacts", data);
   },
   //gets all existing contacts from contacts
   deleteContact: function(id) {
