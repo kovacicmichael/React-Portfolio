@@ -2,34 +2,64 @@ import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './CustomNavbar.css';
+import ReactDOM from "react-dom"
+import About from '../About';
 
 export default class CustomNavbar extends Component {
+
+
+modalClick = (event) => {
+	event.preventDefault();
+	document.getElementById("sidebar-wrapper").classList.toggle("active");
+	//document.getElementsByClassName(".menu-toggle > .fa-bars, .menu-toggle > .fa-times")[0].classList.toggle("fa-bars fa-times");
+	document.getElementsByClassName("menu-toggle")[0].classList.toggle("active");
+
+}
+
+scroll = (event) => {
+	const tesNode = ReactDOM.findDOMNode(this.About)
+	console.log(tesNode)
+	  // if (some_logic){
+	  window.scrollTo(0, tesNode);
+	  // }
+
+
+	// document.getElementById('aboutInfo').scrollIntoView();
+}
+
+
+
+
 	render() {
 		return (
-			<Navbar default collapseOnSelect>
-				<Navbar.Header>
-					<Navbar.Brand>
-						<Link to='/'>ROBERT GERBOTH</Link>
-					</Navbar.Brand>
-					<Navbar.Toggle />
-				</Navbar.Header>
-				<Navbar.Collapse>
-					<Nav pullRight>
-						<NavItem eventKey = {1} componentClass = { Link } href = '/' to = '/' >
-							Home 
-						</NavItem>
-						<NavItem eventKey = {2} componentClass = { Link } href = '/About' to = '/about' >
-							About 
-						</NavItem>
-						<NavItem eventKey = {3} componentClass = { Link } href = '/Projects' to = '/projects' >
-							Projects 
-						</NavItem>
-						<NavItem eventKey = {4} componentClass = { Link } href = '/Contact' to = '/contact' >
-							Contact 
-						</NavItem>
-					</Nav>
-				</Navbar.Collapse>
-		</Navbar>
+		<div>
+		    <a class="menu-toggle rounded" onClick={this.modalClick} href="#">
+		      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+		    </a>
+		    <nav id="sidebar-wrapper">
+		      <ul class="sidebar-nav">
+		        <li class="sidebar-brand">
+		          <a class="js-scroll-trigger" onClick= {this.scroll} href="#page-top">Michael</a>
+		        </li>
+		        <li class="sidebar-nav-item">
+		          <a class="js-scroll-trigger" href="#page-top">Home</a>
+		        </li>
+		        <li class="sidebar-nav-item">
+		          <a class="js-scroll-trigger" onClick={this.scroll}href="#about">About</a>
+		        </li>
+		        <li class="sidebar-nav-item">
+		          <a class="js-scroll-trigger" href="#services">Services</a>
+		        </li>
+		        <li class="sidebar-nav-item">
+		          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+		        </li>
+		        <li class="sidebar-nav-item">
+		          <a class="js-scroll-trigger" href="#contact">Contact</a>
+		        </li>
+		      </ul>
+		    </nav>
+
+		</div>
 		)
 	}
 } 
