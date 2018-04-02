@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
+import "./Admin.css"
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
@@ -134,7 +135,7 @@ export default class Admin extends Component {
       <Container fluid>
         <Row>
           <Col size = "sm-12 md-12">
-            <Jumbotron>
+            <Jumbotron id="adminJumbotron">
               <h1>Enter Home Page and Bio Information Here</h1>
             </Jumbotron>
           </Col>
