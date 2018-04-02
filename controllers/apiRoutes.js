@@ -1,6 +1,4 @@
-//
-// Routes
-
+// api Routes
 
 var mongoose = require("mongoose");
 
@@ -8,6 +6,7 @@ var db = require("./../models");
 const router = require("express").Router();
 
 console.log("api routes page")
+
 module.exports = function(app){
 
   console.log("exporting properly")
@@ -24,20 +23,14 @@ module.exports = function(app){
     ];
 
     Promise.all(promiseArray).then(function(values) {
-
-      console.log(values)
         res.json({
           portfolio: values[0],
           about: values[1],
           contacts: values[2]
         });
-      console.log("we are hereeeeee")
-
       }).catch(function(err) {
-
         res.json(err);
       });
-
   });
 
   //Route for grabbing a specific Portfolio item by id, populate it with it's note
@@ -45,33 +38,44 @@ module.exports = function(app){
   app.get("/portfolioModal/:id", function(req, res) {
 
     db.Portfolio.findOne({ _id: req.params.id })
-      // .populate("note")  // do we need to populate anything on the portfolio? 
       .then(function(dbPortfolio) {
-
         res.json(dbPortfolio);
       })
       .catch(function(err) {
-
         res.json(err);
       });
   });
 
   //Route for getting all contacts
   app.get("/contacts", function(req, res) {
-
     db.Contact.find({})
       .then(function(dbContacts){
-
         res.json(dbContacts);
-
       })
       .catch(function(err) {
-
         res.json(err);
       });
   });
 
-      // Route for deleting an existing contact 
+  // Route for adding a new contact 
+  app.post("/contacts", function(req, res) {
+
+    console.log(`Inside the /contact POST route.`)
+    console.log(req.body)
+
+    db.Contact.create(req.body)
+      .then(function(dbContact) {
+        console.log("New Contact ID: " + dbContact._id)
+      })
+      .then(function(dbContact) {
+        res.json(dbContact);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
+  // Route for deleting an existing contact 
   app.delete("/contacts/:id", function(req, res) {
 
     var contactID = req.params.id
@@ -84,7 +88,6 @@ module.exports = function(app){
         res.json(dbContact);
       })
       .catch(function(err) {
-        // If an error occurs, send it back to the client
         res.json(err);
       });
   });
