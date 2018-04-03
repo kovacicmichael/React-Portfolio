@@ -22,6 +22,8 @@ app.use(bodyParser.json());
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 
 
 require("./controllers/apiRoutes.js")(app);
