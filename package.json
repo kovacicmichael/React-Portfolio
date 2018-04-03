@@ -10,8 +10,7 @@
     "build": "node scripts/build.js",
     "seed": "concurrently \"node scripts/seedAbout.js\" \"node scripts/seedContact.js\" \"node scripts/seedPortfolio.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "installDeps": "yarn && cd client && yarn",
-    "install": "cd client && npm run build && cd .."
+    "installDeps": "yarn && cd client && yarn"
   },
   "repository": {
     "type": "git",
