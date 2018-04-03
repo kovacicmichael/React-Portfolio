@@ -7,7 +7,7 @@ require ("./controllers/apiRoutes")
 // Require all models
 var db = require("./models");
 
-var PORT = process.env.PORT+1 || 3001;
+var PORT = process.env.PORT || 3001;
 
 // Initialize Express
 var app = express();
