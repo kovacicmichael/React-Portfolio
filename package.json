@@ -30,6 +30,8 @@
     "mailgun-js": "^0.16.0",
     "mongoose": "^5.0.12",
     "morgan": "^1.9.0",
-    "react-router-dom": "^4.2.2"
+    "react-router-dom": "^4.2.2",
+    "nodemon": "^1.17.3",
+    "create-react-app": "^1.5.2"
   }
 }
