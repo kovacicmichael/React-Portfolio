@@ -195,7 +195,7 @@ module.exports = function(app){
     var aboutID = req.params.id
     console.log(`aboutID: ${aboutID}`)
     console.log(`Req.body: ${JSON.stringify(req.body)}`)
-    db.About.findOneAndUpdate({ _id: aboutID}, req.body)
+    db.About.findOneAndUpdate({ _id: aboutID}, req.body, {upsert: true})
       .then(function(dbAbout) {
         console.log("Updated About ID: " + dbAbout._id)
       })
