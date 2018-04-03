@@ -6,17 +6,28 @@ var Schema = mongoose.Schema;
 // Using the Schema constructor, create a new ArticleSchema object
 // This is similar to a Sequelize model
 var PortfolioSchema = new Schema({
-  // `title` is required and of type String
-  bioImg: {
+
+  portImg: {
     type: String,
     required: true
   },
-  // `link` is required and of type String
+  sortOrder: {
+    type: Number,
+    required: true
+  },
   name: {
     type: String,
     required: true
   },
-  bio: {
+  portDes: {
+    type: String,
+    required: true
+  },
+  githubURL: {
+    type: String,
+    required: true
+  },
+  liveLink: {
     type: String,
     required: true
   },
