@@ -3,7 +3,7 @@ import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 import UpdateBtn from "../../components/UpdateBtn";
 import API from "../../utils/API";
-import "./Admin.css"
+import "./Admin.css";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
@@ -115,7 +115,6 @@ export default class Admin extends Component {
     })
   };
 
-
   deleteProject = id => {
     console.log("Delete project");
     API.deleteProject(id)
@@ -164,7 +163,6 @@ export default class Admin extends Component {
         .catch(err => console.log(err));
   };
 
-
   handleProjectSubmit = event => {
     event.preventDefault();
       API.saveProject({
@@ -196,9 +194,7 @@ export default class Admin extends Component {
       <Container fluid>
         <Row>
           <Col size = "sm-12 md-12">
-            <Jumbotron id="adminJumbotron">
-              <h1>Enter Home Page and Bio Information Here</h1>
-            </Jumbotron>
+              <h1 class="headerMessage">Bio and Project Information</h1>
           </Col>
           <Col size = "md-6">
             <h1>Personal Profile</h1>
@@ -367,11 +363,11 @@ export default class Admin extends Component {
                     <DeleteBtn onClick={() => this.deleteProject(project._id)} />
                     <UpdateBtn onClick={() => this.selectProject(project._id)} />
                     <p><strong>{project.name}</strong></p>
-                    <p><strong>Description  :{project.portDes}</strong></p>
-                    <p><strong>GitHub Link  :{project.githubURL}</strong></p>
-                    <p><strong>Live Link    :{project.liveLink}</strong></p>
-                    <p><strong>Image LInk   :{project.portImg}</strong></p>
-                    <p><strong>Number Views :{project.portfolioClicks}</strong></p>
+                    <p><strong>Description  : {project.portDes}</strong></p>
+                    <p><strong>GitHub Link  : {project.githubURL}</strong></p>
+                    <p><strong>Live Link    : {project.liveLink}</strong></p>
+                    <p><strong>Image LInk   : {project.portImg}</strong></p>
+                    <p><strong>Number Views : {project.portfolioClicks}</strong></p>
                     <p></p>
                   </ListItem>
                 ))}

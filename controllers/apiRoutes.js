@@ -1,9 +1,10 @@
 // api Routes
+
 var mongoose = require("mongoose");
 
 var db = require("./../models");
+
 const router = require("express").Router();
-const nodemailer = require('nodemailer');
 
 console.log("api routes page")
 
