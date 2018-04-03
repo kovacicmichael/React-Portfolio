@@ -4,8 +4,6 @@ var mongoose = require("mongoose");
 
 var db = require("./../models");
 
-const router = require("express").Router();
-
 var keys = require("./../keys.js")
 const router = require("express").Router();
 require("dotenv").config();
