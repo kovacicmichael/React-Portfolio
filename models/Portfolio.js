@@ -11,6 +11,10 @@ var PortfolioSchema = new Schema({
     type: String,
     required: true
   },
+  sortOrder: {
+    type: Number,
+    required: true
+  },
   name: {
     type: String,
     required: true
