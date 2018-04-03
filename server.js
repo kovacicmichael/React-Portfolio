@@ -20,7 +20,7 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Use express.static to serve the public folder as a static directory
-app.use(express.static("public"));
+app.use(express.static("client/build"));
 
 
 
@@ -34,7 +34,10 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/portfolioDB";
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {});
+mongoose.connect(MONGODB_URI, 
+	{
+		useMongoClient: true
+	});
 
 
 // Start the server
