@@ -3,7 +3,10 @@ var mongoose = require("mongoose");
 
 var db = require("./../models");
 const router = require("express").Router();
-const nodemailer = require('nodemailer');
+
+const api_key = 'key-8032b553e2f50bb336b069a521904694';
+const domain = 'sandbox8d75e1ca83c6447fb6b5de2cf82c6055.mailgun.org';
+const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 console.log("api routes page")
 
@@ -63,16 +66,33 @@ module.exports = function(app){
     console.log(`Inside the /contact POST route.`)
     console.log(req.body)
 
+    
+    var data = {
+      from: req.body.email,
+      to: 'kovacic316@gmail.com',
+      subject: req.body.subject,
+      text: "Sender Name: " + req.body.name + " \n" + "Message: " + req.body.message,
+    };
+ 
     db.Contact.create(req.body)
       .then(function(dbContact) {
         console.log("New Contact ID: " + dbContact._id)
       })
-      .then(function(dbContact) {
-        res.json(dbContact);
-      })
+      .then(mailgun.messages().send(data, function (error, body) {
+        if(error){
+          console.log(error)
+        }else{
+          res.send(true)
+        }
+      }))
       .catch(function(err) {
         res.json(err);
       });
+
+
+    
+
+      
   });
 
   // Route for deleting an existing contact 
