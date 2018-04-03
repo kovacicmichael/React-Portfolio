@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Contact.css';
 import API from "../../utils/API";
 
+
+
 export default class Contact extends Component {
 
 state = {
@@ -50,6 +52,14 @@ validateForm = (event) => {
       .then(res =>{
       	console.log(res.data)
       	const data = res.data
+      	if(res.data){
+      		document.getElementById('status').innerHTML = "Your message was sent! Michael will get back with you soon, thank you for your interest.";
+      		document.getElementById('name').value="";
+      		document.getElementById('email').value="";
+      		document.getElementById('subject').value="";
+      		document.getElementById('message').value="";
+
+      	}
     })
       .catch(err => console.log(err));
 
@@ -82,10 +92,6 @@ saveContact = () => {
 
 
 }
-
-
-
-
 
 	render() {
 		return (

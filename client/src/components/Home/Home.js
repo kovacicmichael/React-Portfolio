@@ -43,8 +43,7 @@ export default class Home extends Component {
   }
 
   loadPage = () => {
-  	console.log("loadpage");
-    API.getAll()
+  	console.log("loadpage");API.getAll()
       .then(res =>{
       	console.log(res.data)
       	const data = res.data
@@ -58,6 +57,7 @@ export default class Home extends Component {
         console.log("background image: " + this.state.homeBackImg)
     })
       .catch(err => console.log(err));
+    
   };
 
 	render() {
