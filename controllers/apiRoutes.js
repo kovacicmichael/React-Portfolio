@@ -189,6 +189,29 @@ module.exports = function(app){
       });
   });
 
+
+
+
+
+  app.post("/about/", function(req, res) {
+
+    var aboutID = req.params.id
+    console.log(`aboutID: ${aboutID}`)
+    console.log(`Req.body: ${JSON.stringify(req.body)}`)
+    db.About.create(req.body)
+      .then(function(dbAbout) {
+        console.log("Updated About ID: " + dbAbout._id)
+      })
+      .then(function(dbAbout) {
+        // If the Article was updated successfully, send it back to the client
+        res.json(dbAbout);
+      })
+      .catch(function(err) {
+        // If an error occurs, send it back to the client
+        res.json(err);
+      });
+  });
+  
   // Route for saving/updating About (bio) information
   app.post("/about/:id", function(req, res) {
 
