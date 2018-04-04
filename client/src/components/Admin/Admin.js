@@ -64,7 +64,7 @@ export default class Admin extends Component {
           projects: data.portfolio,
           contacts: data.contacts
         })
-        console.log(data.about[0].name + " " + data.about[0].title + " " + data.portfolio[0].name + " "+ data.contacts[0].name)
+        //console.log(data.about[0].name + " " + data.about[0].title + " " + data.portfolio[0].name + " "+ data.contacts[0].name)
     })
       .catch(err => console.log(err));
   };
