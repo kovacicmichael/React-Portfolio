@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 import UpdateBtn from "../../components/UpdateBtn";
+import Footer from '../Footer';
 import API from "../../utils/API";
 import "./Admin.css";
 import { Link } from "react-router-dom";
@@ -377,6 +378,7 @@ export default class Admin extends Component {
             )}
           </Col>
         </Row>
+        <Footer />
       </Container>
     );
   }
