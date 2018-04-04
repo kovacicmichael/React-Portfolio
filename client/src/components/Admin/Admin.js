@@ -47,6 +47,15 @@ export default class Admin extends Component {
 
   componentDidMount() {
     this.loadPage();
+    auth.onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+          console.log('loggerd in')
+        }
+        else {
+          console.log("Not logged in");
+          window.location = "/";
+        }
+      })
   }
 
   loadPage = () => {
@@ -405,7 +414,7 @@ export default class Admin extends Component {
           This is the footer
           <br />
         
-          <a onClick = {this.logOut}> Home</a>
+          <a onClick = {this.logOut}> Home(logout)</a>
 
         </footer>
       </Container>

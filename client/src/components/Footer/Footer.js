@@ -17,6 +17,8 @@ state = {
 	password: ""
 }
 
+
+
 handleInputChange = event => {
 	console.log(event.target.value)
 	const { name, value } = event.target;
@@ -30,7 +32,6 @@ handleLoginSubmit = event => {
 	event.preventDefault();
 	database.ref().push({
       username: this.state.username
-      //dateAdded: firebaseConfig.database.ServerValue
     }).then(function(error, res){
     	if(error){
     		console.log(error)
@@ -40,20 +41,24 @@ handleLoginSubmit = event => {
 
     const promise = auth.signInWithEmailAndPassword(this.state.username, this.state.password);
     
+    promise.then(function(){
+    	auth.onAuthStateChanged(firebaseUser => {
+	      if (firebaseUser) {
+	      	console.log('loggerd in')
+	        console.log(firebaseUser);
+	        window.location = "/Admin";
+	      }
+	      else {
+	        console.log("Not logged in");
+	        alert("not signed in")
+	        window.location = "/";
+	      }
+	    })
+
+    })
     promise.catch(error => console.log(error.message));
     
-    auth.onAuthStateChanged(firebaseUser => {
-      if (firebaseUser) {
-      	console.log('loggerd in')
-        console.log(firebaseUser);
-        window.location = "/Admin";
-      }
-      else {
-      	event.preventDefault();
-        console.log("Not logged in");
-        window.location = "/";
-      }
-    });
+    
 }
 
 handleSignUp = event => {
@@ -65,16 +70,7 @@ handleSignUp = event => {
     });
     const promise =  auth.createUserWithEmailAndPassword(this.state.username, this.state.password);
     promise.catch(error => console.log(error.message));
-    auth.onAuthStateChanged(firebaseUser => {
-      if (firebaseUser) {
-      	console.log('logged in')
-        console.log(firebaseUser);
-        //window.location = "/search";
-      }
-      else {
-        console.log("Not logged in");
-      }
-    })
+    
 }
 
 openModal = event => {
@@ -96,7 +92,7 @@ preventModalClose = (event) => {
     event.stopPropagation();
 }
 
-
+//<button id="anchorBtn" class="btn btn-indigo" type="submit" onClick={this.handleSignUp}>Sign Up</button>
 
 	render() {
 		return (
@@ -132,7 +128,7 @@ preventModalClose = (event) => {
 
 							    <div class="text-center mt-4">
 							        <button id="anchorBtn" class="btn btn-indigo" type="submit" onClick={this.handleLoginSubmit}>Login</button>
-							        <button id="anchorBtn" class="btn btn-indigo" type="submit" onClick={this.handleSignUp}>Sign Up</button>
+							        
 							    </div>
 							</form>
 		                </div>
