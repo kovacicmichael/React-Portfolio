@@ -30,7 +30,7 @@ module.exports = function(app){
     ];
 
     Promise.all(promiseArray).then(function(values) {
-      console.log(promiseArray)
+      //console.log(promiseArray)
         res.json({
           portfolio: values[0],
           about: values[1],

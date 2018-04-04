@@ -49,6 +49,7 @@ handleLoginSubmit = event => {
         window.location = "/Admin";
       }
       else {
+      	event.preventDefault();
         console.log("Not logged in");
         window.location = "/";
       }
