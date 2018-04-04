@@ -34,7 +34,7 @@ export default class Projects extends Component {
         this.setState({ 
             image: data.portImg,
             name: data.name,
-            description: data.projectDes,
+            description: data.portDes,
             urlGit: data.githubURL,
             urlLive: data.liveLink
         })
@@ -82,16 +82,15 @@ export default class Projects extends Component {
               <div class="modal-background" >
                 <div class="modal" onClick = {this.preventModalClose}>
                   <h2>{this.state.name}</h2>
-                  <img id="modalImage" src= {this.state.image} />
-                  <p>{this.state.description}</p>
+                  <img id="modalImage" src= {this.state.image} width="250px" height="250px" />
+                  <h4></h4>
+                  <p class="description">{this.state.description}</p>
                   <a id="link" href = {this.state.urlGit} target= "_blank"> Check Out Its ReadMe </a>
                   <br />
                   {this.state.urlLive ? (
 
                     <a id="link" href = {this.state.urlGit} target= "_blank"> This Site is Live! </a>
                     ) : ("") }
-                  
-
                 </div>
               </div>
             </div>

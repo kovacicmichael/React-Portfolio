@@ -47,15 +47,15 @@ export default class Admin extends Component {
 
   componentDidMount() {
     this.loadPage();
-    auth.onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-          console.log('loggerd in')
-        }
-        else {
-          console.log("Not logged in");
-          window.location = "/";
-        }
-      })
+    // auth.onAuthStateChanged(firebaseUser => {
+    //     if (firebaseUser) {
+    //       console.log('loggerd in')
+    //     }
+    //     else {
+    //       console.log("Not logged in");
+    //       window.location = "/";
+    //     }
+    //   })
   }
 
   loadPage = () => {
@@ -411,7 +411,7 @@ export default class Admin extends Component {
           </Col>
         </Row>
         <footer>
-          This is the footer
+          Copyright 2018 - Michael J Kovacic
           <br />
         
           <a onClick = {this.logOut}> Home(logout)</a>

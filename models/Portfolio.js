@@ -9,11 +9,11 @@ var PortfolioSchema = new Schema({
 
   portImg: {
     type: String,
-    required: true
+    required: false
   },
   sortOrder: {
     type: Number,
-    required: true
+    required: false
   },
   name: {
     type: String,
@@ -21,15 +21,15 @@ var PortfolioSchema = new Schema({
   },
   portDes: {
     type: String,
-    required: true
+    required: false
   },
   githubURL: {
     type: String,
-    required: true
+    required: false
   },
   liveLink: {
     type: String,
-    required: true
+    required: false
   },
   portfolioClicks:
     {

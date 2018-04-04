@@ -27,6 +27,7 @@ export default {
   },
   // saves new project to portfolios
   saveProject: function(projectData) {
+    console.log("save Project")
     return axios.post("/portfolio", projectData);
   },
   //gets all existing contacts from contacts

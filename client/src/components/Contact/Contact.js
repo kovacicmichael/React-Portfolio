@@ -100,9 +100,8 @@ saveContact = () => {
 			
 				<section class="section" onClick={this.toggleValdate}>
 
-				    <h2 class="section-heading h1 pt-4">Contact us</h2>
-				    <p class="section-description">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-				        matter of hours to help you.</p>
+				    <h2 class="section-heading h1 pt-4">Contact Me</h2>
+				    <p class="section-description">Do you have any questions in regards to my qualifications or projects? Please do not hesitate to contact me directly. I will get back with you promptly.</p>
 
 				    <div class="row">
 
@@ -167,15 +166,15 @@ saveContact = () => {
 				        <div class="col-md-4 col-xl-3">
 				            <ul class="contact-icons">
 				                <li><i class="fa fa-map-marker fa-2x"></i>
-				                    <p>San Francisco, CA 94126, USA</p>
+				                    <p>Thornton, CO 80229, USA</p>
 				                </li>
 
 				                <li><i class="fa fa-phone fa-2x"></i>
-				                    <p>+ 01 234 567 89</p>
+				                    <p>269 888 1144</p>
 				                </li>
 
 				                <li><i class="fa fa-envelope fa-2x"></i>
-				                    <p>contact@mdbootstrap.com</p>
+				                    <p>kovacic316@gmail.com</p>
 				                </li>
 				            </ul>
 				        </div>

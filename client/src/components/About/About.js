@@ -21,7 +21,7 @@ export default class About extends Component {
       	console.log(res.data)
       	const data = res.data
         this.setState({ 
-        	aboutbioImage:data.about[0].bioImage,
+        	aboutbioImage:data.about[0].bioImg,
 		   	aboutName: data.about[0].name,
 		    aboutBio: data.about[0].bio,
         })

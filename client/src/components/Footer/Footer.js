@@ -41,7 +41,7 @@ handleLoginSubmit = event => {
 
     const promise = auth.signInWithEmailAndPassword(this.state.username, this.state.password);
     
-    promise.then(function(){
+    promise.then(() => {
     	auth.onAuthStateChanged(firebaseUser => {
 	      if (firebaseUser) {
 	      	console.log('loggerd in')
@@ -136,7 +136,7 @@ preventModalClose = (event) => {
 		            </div>
 	            
 				<footer>
-					This is the footer
+					Copyright 2018 - Michael J Kovacic
 					<br />
 	      
 					<a id="two" class="buttonFooter" onClick = {this.openModal}>Admin </a>
