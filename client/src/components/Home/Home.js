@@ -12,6 +12,8 @@ import Footer from '../Footer';
 import Contact from '../Contact';
 import path from "path";
 
+
+
 /*
 found this function here 
 http://stackoverflow.com/a/26831113

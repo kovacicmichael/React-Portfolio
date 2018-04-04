@@ -9,6 +9,12 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
+import firebaseConfig from '../../firebase.js';
+
+let database = firebaseConfig.database();
+const auth = firebaseConfig.auth();
+
+
 
 export default class Admin extends Component {
   state = {
@@ -188,6 +194,23 @@ export default class Admin extends Component {
       portDes: "",
       projects: ""
     })
+  };
+
+  logOut = event => {
+    firebaseConfig.auth().signOut();
+
+    auth.onAuthStateChanged(firebaseUser => {
+      if (firebaseUser) {
+        console.log('loggerd in')
+        console.log(firebaseUser);
+        window.location = "/Admin";
+      }
+      else {
+        console.log("Not logged in");
+        window.location = "/";
+      }
+    })
+
   };
 
   render() {
@@ -378,7 +401,13 @@ export default class Admin extends Component {
             )}
           </Col>
         </Row>
-        <Footer />
+        <footer>
+          This is the footer
+          <br />
+        
+          <a onClick = {this.logOut}> Home</a>
+
+        </footer>
       </Container>
     );
   }

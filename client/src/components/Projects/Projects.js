@@ -52,7 +52,6 @@ export default class Projects extends Component {
       
       document.getElementById("modal-container").classList.add("out");
       document.getElementsByTagName("body")[1].removeAttribute('modal-active');
-
   }
 
   preventModalClose = (event) => {
