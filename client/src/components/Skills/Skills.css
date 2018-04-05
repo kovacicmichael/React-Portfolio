@@ -21,5 +21,28 @@
 	font-size: 32pt;
 	font-weight: 500;
 
+}
 
+.skillContainer{
+	position: relative;
+	margin: auto;
+	text-align: center;
+}
+
+.title{
+	text-align: left;
+	font-size: 20pt;
+	font-weight: bold;
+}
+
+.image{
+	/*background-color: white;*/
+	position: relative;
+	display: inline-block;
+	margin:auto;
+	margin-right: 10px;
+}
+
+#mongo{
+	background-color: white;
 }

@@ -38,8 +38,15 @@
 }
 
 .imgContainer{
+  display: inline-block;
   position: relative;
-  float: left;
+  /*float: left;*/
+  margin:auto;
+}
+
+#one{
+ 
+  margin-right: 15px;
 }
 
 .text{

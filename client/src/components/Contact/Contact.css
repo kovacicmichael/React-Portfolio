@@ -5,6 +5,7 @@
 	
 	background-color: #2274A5;
 	padding-top:10px;
+	padding-bottom: 30px;
 
 
 }
@@ -15,6 +16,7 @@
 	position: relative;
 	margin:auto;
 	margin-top: 30px;
+	/*margin-bottom: 30px;*/
 	padding:20px;
 	background-color: white;
 }
@@ -23,6 +25,6 @@
 	font-size: 12pt;
 }
 
-nameLabel{
+/*nameLabel{
 	font-size: 12pt;
-}
+}*/

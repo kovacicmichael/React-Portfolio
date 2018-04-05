@@ -10,6 +10,16 @@ export default class About extends Component {
     aboutBio: "",
   	};
 
+  	// constructor(props) {
+	  //   super(props);
+	  //   // create a ref to store the textInput DOM element
+	  //   this.aboutSect = React.createRef();
+	  //   //this.focusTextInput = this.focusTextInput.bind(this);
+	  //   //this.aboutSect = element => {
+   //    		//this.textInput = element;
+   //    	//}
+	  // }
+
   componentDidMount() {
     this.loadPage();
   }
@@ -31,7 +41,7 @@ export default class About extends Component {
   };
 	render() {
 		return (
-			<div className="About" id="aboutInfo">
+			<div className="About" id="aboutInfo" ref={this.aboutSect}>
 				<div className="container containerAbout">
 					<Col md={12}>
 						<div class="aboutTitle">

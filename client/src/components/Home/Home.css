@@ -31,6 +31,14 @@
   background-image: url("images/yosemite-merced.jpg");
 
 }
+.homeName{
+  color: white;
+  font-weight: bold;
+}
+.jumbotron p{
+  color: white;
+  font-weight: bold;
+}
 
 
 /*color pattern options

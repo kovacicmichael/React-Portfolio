@@ -94,9 +94,9 @@ export default class Projects extends Component {
                 </div>
               </div>
             </div>
-            <div class="content container">
-              <h1>Projects Go Below</h1>
-              <div class="buttons col-12">
+            <div class="content container projects">
+              <h1>Recent Projects</h1>
+              <div class="buttons containerImg">
 
                 {this.state.projects.map(project => (
                 

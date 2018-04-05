@@ -95,7 +95,7 @@ saveContact = () => {
 
 	render() {
 		return (
-			<div className= "fluid-container contactContainer" >
+			<div className= "fluid-container contactContainer contact" >
 				
 			
 				<section class="section" onClick={this.toggleValdate}>

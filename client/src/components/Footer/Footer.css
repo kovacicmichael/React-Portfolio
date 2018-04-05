@@ -1,7 +1,7 @@
 footer{
 
 	height: 75px;
-	background-color: #2274A5;
+	background-color: #FFC107;
 	color:white;
 	text-align: center;
 	padding-top: 15px;
@@ -49,26 +49,6 @@ a{
 
 
 }
-
-.imgContainer{
-  position: relative;
-  float: left;
-}
-
-.text{
-  position: absolute;
-  bottom: 25%;
-  right: 5.5%;
-  background-color: white;
-  width: 250px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 18pt;
-}
-
-
-
-
 
 /*modal css*/
 html.modal-active, body.modal-active {

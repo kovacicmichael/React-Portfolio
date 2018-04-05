@@ -11,6 +11,7 @@ import Skills from '../Skills';
 import Footer from '../Footer';
 import Contact from '../Contact';
 import path from "path";
+import scrollToElement from 'scroll-to-element';
 
 
 
@@ -62,6 +63,11 @@ export default class Home extends Component {
     
   };
 
+  scroll = event => {
+
+  	scrollToElement(".About");
+  }
+
 	render() {
 		
 		return (
@@ -69,16 +75,16 @@ export default class Home extends Component {
 			<Router>
 
 			<wrapper>
-		        <div class= "fluid-container" >
+		        <div className= "fluid-container Home" >
 		          <Navbar />
-		          	<div class="fluid-container">
+		          	<div className="fluid-container">
 						<Jumbotron id = "background" >
-							<div class="textHome">
-								<h2>{this.state.homeMessage}</h2>
-								<p>{this.state.homeTitle}</p>
+							<div className="textHome">
+								<h2 class="homeName">{this.state.homeMessage}</h2>
+								<p class="message">{this.state.homeTitle}</p>
 								<br />
 								
-								<Button class="btnPrimary">Learn More About Me</Button>
+								<Button className="btnPrimary" onClick={this.scroll}>Learn More About Me</Button>
 								
 							</div>
 						</Jumbotron>
