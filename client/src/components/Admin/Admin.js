@@ -47,15 +47,15 @@ export default class Admin extends Component {
 
   componentDidMount() {
     this.loadPage();
-    // auth.onAuthStateChanged(firebaseUser => {
-    //     if (firebaseUser) {
-    //       console.log('loggerd in')
-    //     }
-    //     else {
-    //       console.log("Not logged in");
-    //       window.location = "/";
-    //     }
-    //   })
+    auth.onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+          console.log('loggerd in')
+        }
+        else {
+          console.log("Not logged in");
+          window.location = "/";
+        }
+      })
   }
 
   loadPage = () => {
