@@ -21,6 +21,8 @@ scroll = (event) => {
 	let element = event.target.id;
 	
 	scrollToElement("." + element);
+
+	document.getElementById("sidebar-wrapper").classList.toggle("active");
 }
 
 

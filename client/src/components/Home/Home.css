@@ -14,15 +14,19 @@
 }
 
 .btn-default{
-  background-color: #2274A5;
+  background-color: #2274A5!important;
   border-color: #2274A5;
   color: #fff;
   width:250px;
   height:60px;
 }
+/*.btn-default {
+    background-color: #2bbbad!important;
+    color: #fff!important;
+}*/
 
 .btn-default:hover, .btn-default:focus, .btn-default:active {
-  background-color: #155d74;
+  background-color: black;
   border-color: #155d74;
 }
 
@@ -34,6 +38,7 @@
 .homeName{
   color: white;
   font-weight: bold;
+  font-size: 22pt;
 }
 .jumbotron p{
   color: white;

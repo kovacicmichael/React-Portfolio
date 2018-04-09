@@ -163,7 +163,7 @@ saveContact = () => {
 				            <div id="status"></div>
 				        </div>
 				      
-				        <div class="col-md-4 col-xl-3">
+				        <div class="col-md-4 col-xl-2">
 				            <ul class="contact-icons">
 				                <li><i class="fa fa-map-marker fa-2x"></i>
 				                    <p>Thornton, CO 80229, USA</p>
