@@ -111,40 +111,39 @@ export default class About extends Component {
 					      <li>
 					        <div>
 					          <time>April 2018</time> 
-					          <h3 class="timelineTitle">Graduate DU Coding Bootcamp</h3>An intensive Full Stack program for full stack developers. Languages include: HTML5, CSS3, JavaScript, jQuery, Node.js, Express.js, React.js, Database Theory, MongoDB, MySQL, Command Line, Git.
+					          <h3 class="timelineTitle">Graduate DU Coding Bootcamp</h3>
+					          <h4 class="timelineSubtitle">Denver, CO</h4>An intensive Full Stack program for full stack developers. Languages include: HTML5, CSS3, JavaScript, jQuery, Node.js, Express.js, React.js, Database Theory, MongoDB, MySQL, Command Line, Git.
 					        </div>
 					      </li>
 					      <li>
 					        <div>
 					          <time>February 2016 - August 2017</time> 
-					          <h3 class="timelineTitle">Community Health Facilitator - Peace Corps</h3>Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse finibus mauris et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
+					          <h3 class="timelineTitle">Community Health Facilitator - Peace Corps</h3>
+					          <h4 class="timelineSubtitle">Paraguay</h4>Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse finibus mauris et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
 					        </div>
 					      </li>
 					      <li>
 					        <div>
-					          <time>1940</time> Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar tortor ex eget ligula. Integer eu dapibus arcu, sit amet sollicitudin eros.
+					          <time>June 2015 - October 2015</time> 
+					          <h3 class="timelineTitle">Guest Services Associate</h3>
+					          <h4 class="timelineSubtitle">Hillsdale, MI</h4>Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar tortor ex eget ligula. Integer eu dapibus arcu, sit amet sollicitudin eros.
 					        </div>
 					      </li>
 					      <li>
 					        <div>
-					          <time>1943</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+					          <time>February 2015 - January 2016</time> 
+					          <h3 class="timelineTitle">Substitute Teacher</h3>
+					          <h4 class="timelineSubtitle">Hillsdale, MI</h4>In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
 					        </div>
 					      </li>
 					      <li>
 					        <div>
-					          <time>1946</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+					          <time>May 2014</time> 
+					          <h3 class="timelineTitle">Bachelors Degree</h3>
+					          <h4 class="timelineSubtitle">Spring Arbor, MI</h4>In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
 					        </div>
 					      </li>
-					      <li>
-					        <div>
-					          <time>1956</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-					        </div>
-					      </li>
-					      <li>
-					        <div>
-					          <time>1957</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-					        </div>
-					      </li>
+					      
 					     
 					    </ul>
 					  </section>
