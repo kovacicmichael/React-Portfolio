@@ -8,7 +8,7 @@ var keys = require("./../keys.js")
 const router = require("express").Router();
 require("dotenv").config();
 
-const api_key = process.env.api_key;
+// const api_key = process.env.api_key;
 const domain = 'sandbox8d75e1ca83c6447fb6b5de2cf82c6055.mailgun.org';
 const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
