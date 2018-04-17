@@ -25,7 +25,6 @@ module.exports = function(app){
 
     let promiseArray = [
       db.Portfolio.find({}),
-      db.About.find({}),
       db.Contact.find({})
     ];
 
@@ -33,8 +32,7 @@ module.exports = function(app){
       //console.log(promiseArray)
         res.json({
           portfolio: values[0],
-          about: values[1],
-          contacts: values[2]
+          contacts: values[1]
         });
       }).catch(function(err) {
         res.json(err);

@@ -148,7 +148,7 @@ saveContact = () => {
 
 				                        <div class="md-form">
 				                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-				                            <label for="message" id= "labelMessege" class="">Your message</label>
+				                            <label for="message" id= "labelMessege" class="active">Your message</label>
 				                        </div>
 
 				                    </div>

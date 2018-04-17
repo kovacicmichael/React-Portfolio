@@ -17,7 +17,8 @@ const portfolio = [
     portDes: "A cool project",
     githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
     liveLink: "https://github.com",
-    portfolioClicks: 0
+    portfolioClicks: 0,
+    techUsed: ["express", "node", "java"]
   },
   {
     portImg: "http://via.placeholder.com/250x250",
@@ -26,7 +27,8 @@ const portfolio = [
     portDes: "Another cool project",
     githubURL: "https://github.com/kovacicmichael/FriendFinder/blob/master/README.md",
     liveLink: "https://github.com",
-    portfolioClicks: 0
+    portfolioClicks: 0,
+    techUsed: ["express", "node", "java"]
   }
 ]
 

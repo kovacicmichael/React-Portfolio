@@ -18,18 +18,6 @@ const auth = firebaseConfig.auth();
 
 export default class Admin extends Component {
   state = {
-    aboutID: "",
-    aboutbioImage: "",
-    aboutName: "",
-    aboutBio: "",
-    aboutFBURL: "",
-    aboutGHURL: "",
-    aboutLIURL: "",
-    aboutEmail: "",
-    aboutPhone: "",
-    homeBackImg: "",
-    homeMessage: "",
-    homeTitle: "",
     portID: "",
     portSortOrder: "",
     portImage: "",
@@ -37,6 +25,7 @@ export default class Admin extends Component {
     portGithubURL: "",
     portLiveLink: "",
     portDes: "",
+    techUsed: "",
     projects: "",
     contactName: "",
     contactEmail: "",
@@ -64,19 +53,8 @@ export default class Admin extends Component {
       .then(res =>{
         console.log(res.data)
         const data = res.data
-        this.setState({ 
-          aboutID:data.about[0]._id,
-          aboutbioImage:data.about[0].bioImg,
-          aboutName: data.about[0].name,
-          aboutBio: data.about[0].bio,
-          aboutFBURL: data.about[0].facebookURL,
-          aboutGHURL: data.about[0].githubURL,
-          aboutLIURL: data.about[0].linkedinURL,
-          aboutEmail: data.about[0].email,
-          aboutPhone: data.about[0].phone,
-          homeBackImg: data.about[0].backImg,
-          homeMessage: data.about[0].message,
-          homeTitle: data.about[0].title,
+        console.log(data.portfolio)
+        this.setState({
           projects: data.portfolio,
           contacts: data.contacts
         })
@@ -97,7 +75,8 @@ export default class Admin extends Component {
         portName: data.name,
         portGithubURL: data.githubURL,
         portLiveLink: data.liveLink,
-        portDes: data.portDes
+        portDes: data.portDes,
+        techUsed: data.techUsed
       })
     })
     .catch(err => console.log(err));
@@ -114,7 +93,9 @@ export default class Admin extends Component {
         portImg: this.state.portImage,
         portDes: this.state.portDes,
         githubURL: this.state.portGithubURL,
-        liveLink: this.state.portLiveLink
+        liveLink: this.state.portLiveLink,
+        techUsed: this.state.techUsed.split(", "),
+        
       })
         .then(res => this.loadPage())
         .catch(err => console.log(err));
@@ -127,6 +108,7 @@ export default class Admin extends Component {
       portGithubURL: "",
       portLiveLink: "",
       portDes: "",
+      techUsed: "",
       projects: ""
     })
   };
@@ -188,6 +170,7 @@ export default class Admin extends Component {
         portDes: this.state.portDes,
         githubURL: this.state.portGithubURL,
         liveLink: this.state.portLiveLink,
+        techUsed: this.state.techUsed.split(", "),
         portfolioClicks: 0
       })
         .then(res => this.loadPage())
@@ -229,105 +212,8 @@ export default class Admin extends Component {
           <Col size = "sm-12 md-12">
               <h1 class="headerMessage">Bio and Project Information</h1>
           </Col>
-          <Col size = "md-6">
-            <h1>Personal Profile</h1>
-            <form>
-              <Input
-                value={this.state.aboutName}
-                onChange={this.handleInputChange}
-                name="aboutName"
-                placeholder="Name (Required)"
-              />
-              <Input
-                value={this.state.homeTitle}
-                onChange={this.handleInputChange}
-                name="homeTitle"
-                placeholder="Homepage Title"
-              />
-              <Input
-                value={this.state.aboutbioImage}
-                onChange={this.handleInputChange}
-                name="aboutbioImage"
-                placeholder="Biography Image URL"
-              />
-              <Input
-                value={this.state.aboutFBURL}
-                onChange={this.handleInputChange}
-                name="aboutFBURL"
-                placeholder="Biography Image URL"
-              />
-              <Input
-                value={this.state.aboutGHURL}
-                onChange={this.handleInputChange}
-                name="aboutGHURL"
-                placeholder="Biography Image URL"
-              />
-              <Input
-                value={this.state.aboutLIURL}
-                onChange={this.handleInputChange}
-                name="aboutLIURL"
-                placeholder="Biography Image URL"
-              />
-              <Input
-                value={this.state.aboutEmail}
-                onChange={this.handleInputChange}
-                name="aboutEmail"
-                placeholder="Biography Image URL"
-              />
-              <Input
-                value={this.state.aboutPhone}
-                onChange={this.handleInputChange}
-                name="aboutPhone"
-                placeholder="Biography Image URL"
-              />
-              <Input
-                value={this.state.homeMessage}
-                onChange={this.handleInputChange}
-                name="homeMessage"
-                placeholder="Homepage Greeting Message"
-              />
-              <Input
-                value={this.state.homeBackImg}
-                onChange={this.handleInputChange}
-                name="homeBackImg"
-                placeholder="Homepage Background Image"
-              />
-              <TextArea
-                value={this.state.aboutBio}
-                onChange={this.handleInputChange}
-                name="aboutBio"
-                placeholder="Biography (Required)"
-              />
-              <FormBtn
-                disabled={!(this.state.aboutName && this.state.aboutBio)}
-                onClick={this.handleAboutSubmit}
-              >
-                Submit Bio
-              </FormBtn>
-            </form>
-          </Col>
 
-          <Col size = "md-6">
-
-            <h1>Registered Contacts</h1>
           
-            {this.state.contacts.length ? (
-              <List>
-                {this.state.contacts.map(contact => (
-                  <ListItem key={contact._id}>
-                    <DeleteBtn onClick={() => this.deleteContact(contact._id)} />
-                    <p><strong>Name    : {contact.name}</strong></p>
-                    <p><strong>Email   : {contact.email}</strong></p>
-                    <p><strong>Subject : {contact.subject}</strong></p>
-                    <p><strong>Message : {contact.message}</strong></p>
-                    <p></p>
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
         </Row>
         <Row>
           <Col size="md-6 sm-12">
@@ -365,6 +251,12 @@ export default class Admin extends Component {
                 name="portLiveLink"
                 placeholder="Live Link (Optional)"
               />
+              <Input
+                value={this.state.techUsed}
+                onChange={this.handleInputChange}
+                name="techUsed"
+                placeholder="Tech Used"
+              />
               <TextArea
                 value={this.state.portDes}
                 onChange={this.handleInputChange}
@@ -386,9 +278,7 @@ export default class Admin extends Component {
             </form>
           </Col>
           <Col size="md-6 sm-12">
-
               <h1>Projects</h1>
-
               {this.state.projects.length ? (
               <List>
                 {this.state.projects.map(project => (
@@ -400,6 +290,7 @@ export default class Admin extends Component {
                     <p><strong>GitHub Link  : {project.githubURL}</strong></p>
                     <p><strong>Live Link    : {project.liveLink}</strong></p>
                     <p><strong>Image LInk   : {project.portImg}</strong></p>
+                    <p><strong>Tech Used   : {project.techUsed}</strong></p>
                     <p><strong>Number Views : {project.portfolioClicks}</strong></p>
                     <p></p>
                   </ListItem>
@@ -410,6 +301,27 @@ export default class Admin extends Component {
             )}
           </Col>
         </Row>
+        <Row>
+        <Col size = "md-6">
+            <h1>Registered Contacts</h1>
+            {this.state.contacts.length ? (
+              <List>
+                {this.state.contacts.map(contact => (
+                  <ListItem key={contact._id}>
+                    <DeleteBtn onClick={() => this.deleteContact(contact._id)} />
+                    <p><strong>Name    : {contact.name}</strong></p>
+                    <p><strong>Email   : {contact.email}</strong></p>
+                    <p><strong>Subject : {contact.subject}</strong></p>
+                    <p><strong>Message : {contact.message}</strong></p>
+                    <p></p>
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Col>
+          </Row>
         <footer>
           Copyright 2018 - Michael J Kovacic
           <br />

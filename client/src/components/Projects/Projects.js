@@ -4,6 +4,9 @@ import API from "../../utils/API";
 import {Grid, Col, Image } from 'react-bootstrap'
 
 
+// style={{ backgroundImage: 'url(' + this.state.image + ')'}}
+
+
 export default class Projects extends Component {
 	state = {
     projects: [],
@@ -11,7 +14,8 @@ export default class Projects extends Component {
     name: "",
     description: "",
     urlGit: "",
-    urlLive: ""
+    urlLive: "",
+    techUsed:[]
   };
 
   componentDidMount() {
@@ -36,7 +40,8 @@ export default class Projects extends Component {
             name: data.name,
             description: data.portDes,
             urlGit: data.githubURL,
-            urlLive: data.liveLink
+            urlLive: data.liveLink,
+            techUsed: data.techUsed
         })
     })
       .catch(err => console.log(err));
@@ -77,20 +82,45 @@ export default class Projects extends Component {
 		return (
       <body>
 			   <div>
-				
     				<div id="modal-container" onClick = {this.closeModal}>
-              <div class="modal-background" >
-                <div class="modal" onClick = {this.preventModalClose}>
-                  <h2>{this.state.name}</h2>
+              <div className="modal-background" >
+                <div className="modal" onClick = {this.preventModalClose}>
+                  <h2 class="modalTitle">{this.state.name}</h2>
+                  <div className="modalLeft col-md-12">
                   <img id="modalImage" src= {this.state.image} width="250px" height="250px" />
-                  <h4></h4>
-                  <p class="description">{this.state.description}</p>
-                  <a id="link" href = {this.state.urlGit} target= "_blank"> Check Out Its ReadMe </a>
-                  <br />
-                  {this.state.urlLive ? (
+                  </div>
+                  <div className="modalRight col-md-12">
+                    <div className="row">
+                      <p class="description">{this.state.description}</p>
+                    </div>
+                    <br/>
+                    <div className="row">
+                      <h4 id="col-md-12">Technologies Used</h4>
+                    </div>
+                    <div className="row">
+                      <ul class="techList">
+                        <div class="techItemContain">
+                        {this.state.techUsed.map(tech => (
+                          <li class="techItem">{tech}</li>
+                          ))}
+                        </div>
+                      </ul>
+                    </div>
+                    <div className="row">
+                      <a className="anchorLink"href = {this.state.urlGit} target= "_blank">
+                        <svg className="fab fa-github-square link">
+                        </svg>
+                      </a>
+                      <br />
+                      {this.state.urlLive ? (
 
-                    <a id="link" href = {this.state.urlGit} target= "_blank"> This Site is Live! </a>
-                    ) : ("") }
+                        <a className="anchorLink" href = {this.state.urlLive} target= "_blank">
+                          <svg className="fa fa-link link">
+                          </svg>
+                        </a>
+                        ) : ("") }
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -106,7 +136,6 @@ export default class Projects extends Component {
                     </div>
                 
                 ))}
-                
               </div>
             </div>
 			   </div>
@@ -114,3 +143,11 @@ export default class Projects extends Component {
 		)
 	}
 } 
+
+
+
+
+
+
+
+

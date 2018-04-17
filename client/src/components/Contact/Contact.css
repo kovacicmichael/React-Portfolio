@@ -25,6 +25,9 @@
 	font-size: 12pt;
 }
 
+.md-form label.active{
+	font-size: 10pt;
+}
 /*nameLabel{
 	font-size: 12pt;
 }*/

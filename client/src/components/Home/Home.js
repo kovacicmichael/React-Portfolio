@@ -12,6 +12,7 @@ import Footer from '../Footer';
 import Contact from '../Contact';
 import path from "path";
 import scrollToElement from 'scroll-to-element';
+import Clipboard from "clipboard";
 
 
 
@@ -31,7 +32,15 @@ http://stackoverflow.com/a/26831113
 //   document.getElementsByClassName("overlay").height(window_offset);
 //   document.getElementsByClassName("caption").css("bottom", (window_offset / 4) );
 // });
+// For copying to clipboard
+var clip = new Clipboard('.copyToClipboard');
 
+clip.on("success", function() {
+  document.body.insertAdjacentHTML('beforeend', '<div>that worked.</div>');
+});
+clip.on("error", function() {
+  document.body.insertAdjacentHTML('beforeend', '<div>that didn\'t work.</div>');
+});
 
 export default class Home extends Component {
   state = {
@@ -80,11 +89,20 @@ export default class Home extends Component {
 		          	<div className="fluid-container">
 						<Jumbotron id = "background" >
 							<div className="textHome">
-								<h2 class="homeName">{this.state.homeMessage}</h2>
-								<p class="message">{this.state.homeTitle}</p>
+								<h2 class="homeName">Hello, I'm Michael</h2>
+								<p class="message">A Full-Stack Web Developer</p>
 								<br />
 								
 								<Button className="btnPrimary" onClick={this.scroll}>Learn More About Me</Button>
+
+								<div className="icons">
+									<a href="https://www.linkedin.com/in/michael-kovacic-16076417/" target="_blank"><i className="fab fa-linkedin-in"></i></a>
+									<br />
+									<a href="https://github.com/kovacicmichael" target="_blank"><i className="fab fa-github-alt"></i></a>
+									<br />
+									<a className="copyToClipboard" data-clipboard-text="kovacic316@gmail.com"><i className="far fa-envelope" data-toggle="tooltip" title="Click here to copy my email to your clipboard!" data-placement="bottom"></i></a>
+
+								</div>
 								
 							</div>
 						</Jumbotron>

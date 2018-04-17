@@ -8,7 +8,7 @@
     "client": "node scripts/start-client.js",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "node scripts/build.js",
-    "seed": "concurrently \"node scripts/seedAbout.js\" \"node scripts/seedContact.js\" \"node scripts/seedPortfolio.js\"",
+    "seed": "concurrently \"node scripts/seedContact.js\" \"node scripts/seedPortfolio.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "installDeps": "yarn && cd client && yarn"
   },
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/kovacicmichael/Personal-Portfolio#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "clipboard": "^2.0.0",
     "concurrently": "^3.5.1",
     "create-react-app": "^1.5.2",
     "dotenv": "^5.0.1",

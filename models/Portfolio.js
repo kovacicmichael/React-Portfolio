@@ -31,11 +31,14 @@ var PortfolioSchema = new Schema({
     type: String,
     required: false
   },
-  portfolioClicks:
-    {
+  portfolioClicks: {
       type: Number,
       required: false
-    }
+    },
+  techUsed: {
+      type: Array,
+      required: false
+  }
 });
 
 // This creates our model from the above schema, using mongoose's model method

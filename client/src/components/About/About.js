@@ -5,31 +5,9 @@ import API from "../../utils/API";
 
 
 
-
-
-
-
-
 export default class About extends Component {
-	state = {
-    aboutbioImage:"",
-   	aboutName: "",
-    aboutBio: "",
-  	};
-
-  	// constructor(props) {
-	  //   super(props);
-	  //   // create a ref to store the textInput DOM element
-	  //   this.aboutSect = React.createRef();
-	  //   //this.focusTextInput = this.focusTextInput.bind(this);
-	  //   //this.aboutSect = element => {
-   //    		//this.textInput = element;
-   //    	//}
-	  // }
 
   componentDidMount() {
-    this.loadPage();
-
     (function() {
 
 		  'use strict';
@@ -54,9 +32,11 @@ export default class About extends Component {
 		      if (isElementInViewport(items[i])) {
 		        items[i].classList.add("in-view");
 		      }
+		      // else{
+		      // 	items[i].classList.remove("in-view");
+		      // }
 		    }
 		  }
-
 		  // listen for events
 		  window.addEventListener("load", callbackFunc);
 		  window.addEventListener("resize", callbackFunc);
@@ -65,24 +45,9 @@ export default class About extends Component {
 		})();
   }
 
-  loadPage = () => {
-  	console.log("loadpage")
-    API.getAll()
-      .then(res =>{
-      	console.log(res.data)
-      	const data = res.data
-        this.setState({ 
-        	aboutbioImage:data.about[0].bioImg,
-		   	aboutName: data.about[0].name,
-		    aboutBio: data.about[0].bio,
-        })
-        console.log(this.state.aboutbioImage)
-    })
-      .catch(err => console.log(err));
-  };
 	render() {
 		return (
-			<div className="About" id="aboutInfo" ref={this.aboutSect}>
+			<div className="About" id="aboutInfo">
 				<div className="container containerAbout">
 					<Col md={12}>
 						<div class="aboutTitle">
@@ -90,11 +55,11 @@ export default class About extends Component {
 						</div>
 					</Col>
 					<Col md={3} mdOffset={1}>
-						<Image src = {this.state.aboutbioImage} className = 'about-profile-pic' rounded="100%" height="225px" width="225px"/>
+						<Image src = "https://s3.us-east-2.amazonaws.com/personalportfolio1/prof+profile+pic.jpg" className = 'about-profile-pic' rounded="100%" height="225px" width="225px"/>
 					</Col>
 					<Col md={7}>
 						<div className= "bioContent">
-							<p class="missionStatement">{this.state.aboutBio}</p>
+							<p class="missionStatement">Full Stack Web Developer with a gift for linking technical know how to creative ideas. I am experienced in HTML, CSS, Javascript, jQuery, Node.js, Express, and MySQL and MongoDB. I have a passion for discovery and learning, and am constantly excited about the possibilities this industry has to offer. After spending almost two years in a foreign country learning a new language, I understand the amount of effort it takes to succeed in something challenging; I love the opportunity to face a new problem and persevere until I have found the solution. Much of my time is spent attempting to increase my knowledge and experience to keep pace with a continuously growing industry. I am currently looking to apply my experience with a like minded company to help create dynamic applications that help improve its users quality of life.</p>
 							
 						</div>
 					</Col>
@@ -102,7 +67,7 @@ export default class About extends Component {
 				<div className="container">
 					<section class="intro">
 					    <div class="container timelineContainer">
-					      <h1>Past Experience</h1>
+					      <h1 class="timelineIntro">Past Experience and Education</h1>
 					    </div>
 					  </section>
 
@@ -143,18 +108,9 @@ export default class About extends Component {
 					          <h4 class="timelineSubtitle">Spring Arbor, MI</h4>In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
 					        </div>
 					      </li>
-					      
-					     
 					    </ul>
 					  </section>
-
-
-
-
-
 				</div>
-
-
 			</div>
 		)
 	}

@@ -11,19 +11,46 @@
 }*/
 
 
-#link{
+/*#link{
   color:black;
+  font-size: 40pt;
+  float: left;
+}*/
+.anchorLink{
+  color: black;
+  font-size: 500%;
+  margin: auto;
+  -webkit-box-align:center;
 }
 
 .modal{
   width:70%;
-  height:70%;
+  height:80%;
+}
+.modalTitle{
+  height:10%;
 }
 
 #modalImage{
+  margin:auto;
+  width: 300px;
+  height: 300px;
+}
 
-  float: left;
-  margin:10px;
+.modalLeft{
+  margin: auto;
+  width: 40%;
+  /*border: 1px solid black;*/
+  display: inline;
+  height: 85%;
+}
+
+.modalRight{
+  margin: auto;
+  width: 60%;
+  /*border: 1px solid black;*/
+  display: inline;
+  height: 85%;
 }
 
 .button{
@@ -63,10 +90,54 @@
 
 .description{
   text-align: left;
-  padding:10px;
-  margin-left:10px;
+  
 }
 
+#techTitle{
+  display: block;
+  height: 16px;
+}
+
+.techList{
+
+  /*position: absolute;
+  bottom: 5%;
+  right: 20%;*/
+}
+
+ul{
+  width:100%;
+  margin-bottom:20px;
+  margin-right: 15px;
+  overflow:hidden;
+  border-top:1px solid #ccc;
+}
+.techItem{
+  line-height:1.5em;
+  /*border-bottom:1px solid #ccc;*/
+  float:left;
+  display:inline;
+  width: 33%;
+  font-size: 14pt;
+}
+
+.techItem{
+  text-align: left;
+}
+.techItemContain{
+  align-content: right;
+  margin:auto;
+}
+/*.linkContain{
+  margin-right: 10%;
+  text-align: right;
+  clear: both;
+}*/
+
+.svg-inline--fa{
+  font-size: 150%;
+  display: block;
+}
 
 /*modal css*/
 html.modal-active, body.modal-active {
@@ -108,7 +179,8 @@ html.modal-active, body.modal-active {
 }
 #modal-container .modal-background .modal {
   background: white;
-  padding: 50px;
+  padding: 20px;
+  padding-right: 20px !important; 
   display: inline-block;
   border-radius: 3px;
   font-weight: 300;

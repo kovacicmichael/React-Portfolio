@@ -45,6 +45,12 @@
   font-weight: bold;
 }
 
+.icons {
+  position: fixed;
+  top: 40%;
+  font-size: 35px;
+  left:1%;
+}
 
 /*color pattern options
 

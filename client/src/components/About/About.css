@@ -46,6 +46,10 @@
   padding: 100px 0;
   font-weight: 500;
 }
+.timelineIntro{
+	font-size: 32px;
+	font-weight: 500;
+}
 
 .timelineContainer {
   width: 90%;
