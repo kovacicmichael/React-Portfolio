@@ -64,7 +64,7 @@ export default class About extends Component {
 						</div>
 					</Col>
 				</div>
-				<div className="container">
+				<div className="fluid-container">
 					<section class="intro">
 					    <div class="container timelineContainer">
 					      <h1 class="timelineIntro">Past Experience and Education</h1>
