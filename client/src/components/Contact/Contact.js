@@ -70,7 +70,6 @@ toggleForm = () => {
 		this.setState({
 			activeName: "active"
 		})
-	
 }
 
 toggleValdate = () => {
@@ -105,7 +104,7 @@ saveContact = () => {
 
 				    <div class="row">
 
-				        <div class="col-md-8 col-xl-9">
+				        <div class="col-md-9">
 				            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
 
 				                <div class="row">
@@ -163,7 +162,7 @@ saveContact = () => {
 				            <div id="status"></div>
 				        </div>
 				      
-				        <div class="col-md-4 col-xl-2">
+				        <div class="col-md-3">
 				            <ul class="contact-icons">
 				                <li><i class="fa fa-map-marker fa-2x"></i>
 				                    <p>Thornton, CO 80229, USA</p>

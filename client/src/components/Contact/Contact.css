@@ -19,6 +19,11 @@
 	/*margin-bottom: 30px;*/
 	padding:20px;
 	background-color: white;
+	overflow-y: auto;
+}
+
+.section-description{
+	font-size: 12pt;
 }
 
 .md-form label{
