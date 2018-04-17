@@ -184,6 +184,7 @@ export default class Admin extends Component {
       portGithubURL: "",
       portLiveLink: "",
       portDes: "",
+      techUsed: "",
       projects: ""
     })
   };

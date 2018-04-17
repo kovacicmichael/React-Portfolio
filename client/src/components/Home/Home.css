@@ -50,6 +50,8 @@
   top: 40%;
   font-size: 35px;
   left:1%;
+  color: white;
+  mix-blend-mode: difference;
 }
 
 /*color pattern options

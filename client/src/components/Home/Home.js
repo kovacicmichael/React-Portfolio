@@ -48,12 +48,10 @@ export default class Home extends Component {
     homeMessage: "",
     homeTitle: "",
   };
-
   componentDidMount() {
     this.loadPage();
     
   }
-
   loadPage = () => {
   	console.log("loadpage");API.getAll()
       .then(res =>{
@@ -69,13 +67,17 @@ export default class Home extends Component {
         console.log("background image: " + this.state.homeBackImg)
     })
       .catch(err => console.log(err));
-    
   };
 
   scroll = event => {
 
   	scrollToElement(".About");
   }
+
+  // color = event => {
+  // 	if(document.getElementBy)
+
+  // }
 
 	render() {
 		
