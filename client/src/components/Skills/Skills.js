@@ -46,7 +46,7 @@ componentDidMount() {
 								
 								Languages
 							</div>
-							<div class="imageContainer">
+							<div class="imageContainer well">
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/ES6LOGO.svg" height="125px" width="100px"></img>
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/js-logo.png" height="125px" width="110px"></img>
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/html.png" height="125px" width="100px"></img>
@@ -59,7 +59,7 @@ componentDidMount() {
 								
 								Data
 							</div>
-							<div class= "imageContainer">
+							<div class= "imageContainer well">
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/mysql.svg" height="125px" width="100px"></img>
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/sequelize.png" height="100px" width="225px"></img>
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/mongodb-logo-1.png" height="125px" width="125px"></img>
@@ -71,7 +71,7 @@ componentDidMount() {
 								
 								Tools
 							</div>
-							<div class= "imageContainer">
+							<div class= "imageContainer well">
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/mern.jpg" height="125px" width="100px"></img>
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/node_js.png" height="125px" width="100px"></img>
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/github-512.png" height="125px" width="100px"></img>
@@ -84,7 +84,7 @@ componentDidMount() {
 								
 								Frameworks
 							</div>
-							<div class= "imageContainer">
+							<div class= "imageContainer well">
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/express.png" height="125px" width="125px"></img>
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/ReactJS.png" height="125px" width="100px"></img>
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/bootstrap-tutorial.png" height="125px" width="100px"></img>
@@ -95,7 +95,7 @@ componentDidMount() {
 								
 								Deployment
 							</div>
-							<div class= "lastImgaeContainer">
+							<div class= "lastImgaeContainer well">
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/heroku.png" height="125px" width="100px"></img>
 								<img class="image" src="https://s3.us-east-2.amazonaws.com/personalportfolio1/gitPages.png" height="125px" width="225px"></img>
 									
