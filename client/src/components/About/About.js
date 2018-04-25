@@ -77,35 +77,37 @@ export default class About extends Component {
 					        <div>
 					          <time>April 2018</time> 
 					          <h3 class="timelineTitle">Graduate DU Coding Bootcamp</h3>
-					          <h4 class="timelineSubtitle">Denver, CO</h4>An intensive Full Stack program for full stack developers. Languages include: HTML5, CSS3, JavaScript, jQuery, Node.js, Express.js, React.js, Database Theory, MongoDB, MySQL, Command Line, Git.
+					          <h4 class="timelineSubtitle">Denver, CO</h4>An intensive program to train and equip Full-Stack Web Developers. Coursework included: HTML5, CSS3, JavaScript, jQuery, Node.js, Express.js, React.js, Database Theory, MongoDB, MySQL, Command Line, Git, and more.
 					        </div>
 					      </li>
 					      <li>
 					        <div>
 					          <time>February 2016 - August 2017</time> 
 					          <h3 class="timelineTitle">Community Health Facilitator - Peace Corps</h3>
-					          <h4 class="timelineSubtitle">Paraguay</h4>Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse finibus mauris et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
+					          <h4 class="timelineSubtitle">Paraguay</h4>Developed syllabus and curriculums for classroom learnings and utilized social media platforms to connect students with clubs, organizations, and resources. Designed and implemented projects revolving around self esteem, gender equality and education, and human rights.
+
 					        </div>
 					      </li>
 					      <li>
 					        <div>
 					          <time>June 2015 - October 2015</time> 
 					          <h3 class="timelineTitle">Guest Services Associate</h3>
-					          <h4 class="timelineSubtitle">Hillsdale, MI</h4>Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar tortor ex eget ligula. Integer eu dapibus arcu, sit amet sollicitudin eros.
+					          <h4 class="timelineSubtitle">Hillsdale, MI</h4>Managed and trained 25 staff members while overseeing the organization and completion of various work projects and activities.  Communicated and listened to a variety of guest groups through phone calls, group orientations, and staff meetings.
 					        </div>
 					      </li>
 					      <li>
 					        <div>
 					          <time>February 2015 - January 2016</time> 
 					          <h3 class="timelineTitle">Substitute Teacher</h3>
-					          <h4 class="timelineSubtitle">Hillsdale, MI</h4>In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+					          <h4 class="timelineSubtitle">Hillsdale, MI</h4>Assume the duties of the regular classroom teacher within school rules and procedures.  Follow the teacher's lesson plan while maintaining classroom’s normal function and discipline procedures.
+
 					        </div>
 					      </li>
 					      <li>
 					        <div>
 					          <time>May 2014</time> 
-					          <h3 class="timelineTitle">Bachelors Degree</h3>
-					          <h4 class="timelineSubtitle">Spring Arbor, MI</h4>In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+					          <h3 class="timelineTitle">Bachelor of the Arts Degree</h3>
+					          <h4 class="timelineSubtitle">Spring Arbor, MI</h4>Major in Global Studies.  Key courses include: International Human Rights, Cultural Anthropology, Internationl Economics, International Human Rights, and Spanish Language Study.
 					        </div>
 					      </li>
 					    </ul>
