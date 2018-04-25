@@ -107,7 +107,7 @@ export default class About extends Component {
 					        <div>
 					          <time>May 2014</time> 
 					          <h3 class="timelineTitle">Bachelor of the Arts Degree</h3>
-					          <h4 class="timelineSubtitle">Spring Arbor, MI</h4>Major in Global Studies.  Key courses include: International Human Rights, Cultural Anthropology, Internationl Economics, International Human Rights, and Spanish Language Study.
+					          <h4 class="timelineSubtitle">Spring Arbor, MI</h4>Major in Global Studies.  Key courses include: International Human Rights, Cultural Anthropology, Internationl Economics, and Spanish Language Study.
 					        </div>
 					      </li>
 					    </ul>
