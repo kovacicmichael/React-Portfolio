@@ -76,7 +76,7 @@ export default class About extends Component {
 					      <li>
 					        <div>
 					          <time>April 2018</time> 
-					          <h3 class="timelineTitle">Graduate DU Coding Bootcamp</h3>
+					          <h3 class="timelineTitle">Graduate University of Denver Full Stack Program</h3>
 					          <h4 class="timelineSubtitle">Denver, CO</h4>An intensive program to train and equip Full-Stack Web Developers. Coursework included: HTML5, CSS3, JavaScript, jQuery, Node.js, Express.js, React.js, Database Theory, MongoDB, MySQL, Command Line, Git, and more.
 					        </div>
 					      </li>
